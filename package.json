@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@motionone/vue": "^10.16.4",
     "@oku-ui/motion": "^0.4.3",
     "@tailwindcss/vite": "^4.1.12",
     "motion-v": "^1.7.0",
