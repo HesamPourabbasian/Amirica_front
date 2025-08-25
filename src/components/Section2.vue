@@ -41,7 +41,6 @@ onMounted(async () => {
         <h2 class="text-[20px] font-bold text-gray-800 mb-2 truncate">
         </h2>
         <p class="text-gray-600 text-xs md:text-sm line-clamp-3">
-          {{ item.body }}
         </p>
       </div>
     </div>
