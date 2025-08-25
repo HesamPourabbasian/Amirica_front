@@ -4,7 +4,7 @@
   <div class="container mx-auto p-4">
     <div class="flex flex-col md:flex-row gap-4">
       <!-- First div -->
-      <div class="flex-1 p-6 flex justify-center items-center">
+      <div class="ryan flex-1 p-6 flex justify-center items-center">
         <img class="w-[300px]" src="/ryan.png" alt="" />
       </div>
 
@@ -46,7 +46,7 @@
 
 <style scoped>
 @media (max-width: 768px) {
-  img {
+ .ryan img {
     width: 150px;
   }
 }
