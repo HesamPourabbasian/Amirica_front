@@ -24,8 +24,8 @@ onMounted(async () => {
       // move up on hover
       card.addEventListener("mouseenter", () => {
         gsap.to(card, {
-          y: -10,
-          duration: 0.3,
+          y: -12,
+          duration: 0.1,
           ease: "power2.out",
         });
       });
@@ -51,7 +51,7 @@ onMounted(async () => {
       <div
         v-for="(item, index) in results"
         :key="item.id"
-        class="card bg-[#C3ADD2] rounded-2xl shadow-lg p-4 md:p-6 transition flex flex-col items-center text-center min-h-40 md:min-h-60 overflow-hidden cursor-pointer"
+        class="card bg-sky-200 rounded-2xl shadow-lg p-4 md:p-6 transition flex flex-col items-center text-center min-h-40 md:min-h-60 overflow-hidden cursor-pointer"
       >
         <!-- Centered icon -->
         <img

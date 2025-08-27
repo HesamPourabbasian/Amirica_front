@@ -20,7 +20,7 @@ const handleLogin = () => {
     <!-- First Div -->
     <div class="flex-1">
       <div
-        class="login min-h-screen flex items-center justify-center bg-[#FFF8DC]"
+        class="login min-h-screen flex items-center justify-center bg-[#F3F4F6]"
       >
         <!-- Card -->
         <div
