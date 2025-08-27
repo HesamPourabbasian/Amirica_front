@@ -1,21 +1,44 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
+import gsap from "gsap";
 
 const results = ref([]);
 
 // Store local icons (from /public/icons/)
-const icons = [
-  "/statics.svg",
-  "/swear.svg",
-  "/member.svg",
-  "/dollar.svg",
-];
+const icons = ["/statics.svg", "/swear.svg", "/member.svg", "/dollar.svg"];
 
-// Example fetch (replace with your backend API)
 onMounted(async () => {
   try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=4");
+    const res = await fetch(
+      "https://jsonplaceholder.typicode.com/posts?_limit=4"
+    );
     results.value = await res.json();
+
+    // wait until DOM is updated
+    await nextTick();
+
+    // Select all cards
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card) => {
+      // move up on hover
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+          y: -10,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+
+      // reset on mouse leave
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+          y: 0,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      });
+    });
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -28,7 +51,7 @@ onMounted(async () => {
       <div
         v-for="(item, index) in results"
         :key="item.id"
-        class="bg-[#C3ADD2] rounded-2xl shadow-lg p-4 md:p-6 hover:shadow-xl transition flex flex-col items-center text-center min-h-40 md:min-h-60 overflow-hidden"
+        class="card bg-[#C3ADD2] rounded-2xl shadow-lg p-4 md:p-6 transition flex flex-col items-center text-center min-h-40 md:min-h-60 overflow-hidden cursor-pointer"
       >
         <!-- Centered icon -->
         <img
@@ -38,10 +61,8 @@ onMounted(async () => {
         />
 
         <!-- Card content -->
-        <h2 class="text-[20px] font-bold text-gray-800 mb-2 truncate">
-        </h2>
-        <p class="text-gray-600 text-xs md:text-sm line-clamp-3">
-        </p>
+        <h2 class="text-[20px] font-bold text-gray-800 mb-2 truncate"></h2>
+        <p class="text-gray-600 text-xs md:text-sm line-clamp-3"></p>
       </div>
     </div>
   </div>

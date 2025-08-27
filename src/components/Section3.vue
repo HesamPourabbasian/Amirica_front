@@ -9,7 +9,7 @@
       </div>
 
       <!-- Second div -->
-      <div class="flex-1">
+      <div class="flex-1 p-6">
         <div class="paragraph1">
           <h1 class="text-right text-[40px]">رشد و تحول شخصی</h1>
           <p class="text-right pt-[20px]">
@@ -47,7 +47,10 @@
 <style scoped>
 @media (max-width: 768px) {
  .ryan img {
-    width: 150px;
+    width: 200px;
+  }
+  .paragraph1 h1 {
+    font-size: 25px;
   }
 }
 </style>
