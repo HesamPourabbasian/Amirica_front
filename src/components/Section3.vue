@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="container mx-auto p-4">
+  <div class="container mx-auto p-4 mt-[50px]">
     <div class="flex flex-col md:flex-row gap-4">
       <!-- First div -->
       <div class="ryan flex-1 p-6 flex justify-center items-center">
