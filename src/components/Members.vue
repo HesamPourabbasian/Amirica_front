@@ -1,19 +1,23 @@
 <script setup>
 const members = [
-  { name: "حسام پورعباسیان", img: "/profile1.jpg" },
-  { name: "مهدی دولتی", img: "/profile2.jpg" },
-  { name: "پویا زادمهر", img: "/profile3.jpg" },
-  { name: "محمد جمالی", img: "/profile4.jpg" },
-  { name: "محمد حسن زاده", img: "/profile5.jpg" },
-  { name: "امین فلاح", img: "/profile6.jpg" },
-  { name: "سینا علیزاد", img: "/profile7.jpg" },
-  { name: "پویا جنگ آرا", img: "/profile8.jpg" },
-  { name: "الیار رنجبر", img: "/profile9.jpg" },
+  { name: "حسام پورعباسیان", img: "/meme.jpg" },
+  { name: "مهدی دولتی", img: "/meme.jpg" },
+  { name: "پویا زادمهر", img: "/meme.jpg" },
+  { name: "محمد جمالی", img: "/meme.jpg" },
+  { name: "محمد حسن زاده", img: "/meme.jpg" },
+  { name: "امین فلاح", img: "/meme.jpg" },
+  { name: "سینا علیزاد", img: "/meme.jpg" },
+  { name: "پویا جنگ آرا", img: "/meme.jpg" },
+  { name: "الیار رنجبر", img: "/meme.jpg" },
 ];
 </script>
 
 <template>
-  <div class="w-[90%] mx-auto grid gap-4">
+  <div>
+    <h1 class="mr-[6%] mb-5 text-[40px]">اسامی اعضا</h1>
+  </div>
+
+  <div class="w-[90%] mx-auto grid gap-4 grid-cols-1 md:grid-cols-2">
     <div
       v-for="(member, index) in members"
       :key="index"
