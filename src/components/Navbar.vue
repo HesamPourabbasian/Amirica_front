@@ -8,111 +8,119 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <nav>
+  <nav
+    class="mt-3 fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-black via-gray-900 to-gray-800 shadow-xl"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 items-center">
-        <!-- Right side (Logo) -->
+        <!-- Logo -->
         <div class="flex-shrink-0">
           <router-link to="/">
-            <img src="/download.png" alt="Logo" class="w-[200px]" />
+            <img
+              src="/download.png"
+              alt="Logo"
+              class="w-[150px] drop-shadow-lg"
+            />
           </router-link>
         </div>
 
-        <!-- Left side (Links) -->
-        <div class="hidden md:flex space-x-6">
-          <a href="#" class="text-gray-700 hover:text-blue-500 transition"
-            >درباره ما</a
-          >
-          <router-link
-            to="/login"
-            class="text-gray-700 hover:text-blue-500 transition"
-          >
-            ورود
-          </router-link>
-        </div>
-
-        <!-- Mobile hamburger button -->
-        <div class="md:hidden">
+        <!-- منو Button -->
+        <div>
           <button
             @click="toggleMenu"
-            class="text-gray-700 hover:text-blue-500 focus:outline-none"
+            class="px-4 py-2 rounded-xl bg-sky-500/20 text-sky-400 border border-sky-500/30 shadow-lg backdrop-blur-md hover:bg-sky-500/40 hover:text-white transition-all font-bold"
           >
-            <svg
-              class="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                v-if="!isOpen"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-              <path
-                v-else
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            منو
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Mobile menu -->
-    <transition name="slide-fade">
-      <div v-if="isOpen" class="md:hidden px-4 pb-4 space-y-2">
-        <a href="#" class="block text-gray-700 hover:text-blue-500 transition"
-          >خانه</a
+    <!-- Overlay (background dim when sidebar open) -->
+    <transition name="fade">
+      <div
+        v-if="isOpen"
+        class="fixed inset-0 bg-black/50 backdrop-blur-sm"
+        @click="toggleMenu"
+      ></div>
+    </transition>
+
+    <!-- Sidebar (Luxury style, from LEFT) -->
+    <transition name="slide">
+      <div
+        v-if="isOpen"
+        class="fixed top-0 left-0 w-72 h-full bg-gray-900/90 backdrop-blur-xl border-r border-sky-500/30 shadow-2xl flex flex-col p-6 space-y-8 rounded-r-2xl"
+      >
+        <!-- Close button -->
+        <button
+          @click="toggleMenu"
+          class="text-sky-400 hover:text-white text-xl font-bold self-end transition-all"
         >
-        <a href="#" class="block text-gray-700 hover:text-blue-500 transition"
-          >درباره ما</a
+          ✕
+        </button>
+
+        <!-- Links -->
+        <router-link
+          to="/"
+          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide"
+          @click="toggleMenu"
         >
+          خانه
+        </router-link>
+        <a
+          href="#"
+          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide"
+          @click="toggleMenu"
+        >
+          درباره ما
+        </a>
         <router-link
           to="/login"
-          class="block text-gray-700 hover:text-blue-500 transition"
-          ><a>ورود</a>
+          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide"
+          @click="toggleMenu"
+        >
+          ورود
         </router-link>
       </div>
     </transition>
   </nav>
 </template>
+
 <style scoped>
-/* Smooth dropdown animation */
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
 nav {
-  position: sticky;
-  top: 10px; /* distance from the top */
-  margin: 0 auto; /* center horizontally */
-  backdrop-filter: blur(0px) saturate(88%);
-  -webkit-backdrop-filter: blur(0px) saturate(88%);
-  background-color: rgba(255, 255, 255, 0.74);
   border-radius: 50px;
-  width: 95%;
-  border: 1px solid rgba(209, 213, 219, 0.3);
-  z-index: 999; /* keep it above content */
+  margin-left: 10px;
+  margin-right: 10px;
 }
-@media (max-width: 768px) {
-  img {
-    width: 120px;
-  }
-  nav {
-    border: none;
-  }
+/* Sidebar slide animation (from LEFT) */
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.35s ease;
+}
+.slide-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-enter-to {
+  transform: translateX(0%);
+  opacity: 1;
+}
+.slide-leave-from {
+  transform: translateX(0%);
+  opacity: 1;
+}
+.slide-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Overlay fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

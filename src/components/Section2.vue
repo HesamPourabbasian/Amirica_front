@@ -3,8 +3,6 @@ import { ref, onMounted, nextTick } from "vue";
 import gsap from "gsap";
 
 const results = ref([]);
-
-// Store local icons (from /public/icons/)
 const icons = ["/statics.svg", "/swear.svg", "/member.svg", "/dollar.svg"];
 
 onMounted(async () => {
@@ -14,26 +12,24 @@ onMounted(async () => {
     );
     results.value = await res.json();
 
-    // wait until DOM is updated
     await nextTick();
 
-    // Select all cards
     const cards = document.querySelectorAll(".card");
 
     cards.forEach((card) => {
-      // move up on hover
       card.addEventListener("mouseenter", () => {
         gsap.to(card, {
           y: -12,
-          duration: 0.1,
+          boxShadow: "0 20px 30px rgba(14, 165, 233, 0.4)", // skyblue glow
+          duration: 0.2,
           ease: "power2.out",
         });
       });
 
-      // reset on mouse leave
       card.addEventListener("mouseleave", () => {
         gsap.to(card, {
           y: 0,
+          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
           duration: 0.3,
           ease: "power2.inOut",
         });
@@ -51,19 +47,30 @@ onMounted(async () => {
       <div
         v-for="(item, index) in results"
         :key="item.id"
-        class="card bg-sky-200 rounded-2xl shadow-lg p-4 md:p-6 transition flex flex-col items-center text-center min-h-40 md:min-h-60 overflow-hidden cursor-pointer"
+        class="card relative bg-gray-900/90 backdrop-blur-xl border border-sky-500/20 rounded-2xl p-6 flex flex-col items-center text-center cursor-pointer transition-all hover:scale-105"
       >
-        <!-- Centered icon -->
-        <img
-          :src="icons[index % icons.length]"
-          alt="card icon"
-          class="w-12 h-12 mb-3"
-        />
+        <!-- Icon with glow -->
+        <div class="p-4 bg-gray-800/40 rounded-full shadow-md mb-4">
+          <img
+            :src="icons[index % icons.length]"
+            alt="card icon"
+            class="w-12 h-12 filter drop-shadow-lg"
+          />
+        </div>
 
         <!-- Card content -->
-        <h2 class="text-[20px] font-bold text-gray-800 mb-2 truncate"></h2>
-        <p class="text-gray-600 text-xs md:text-sm line-clamp-3"></p>
+        <h2 class="text-lg md:text-xl font-bold text-gray-200 mb-2 truncate">
+        </h2>
+        <p class="text-gray-400 text-xs md:text-sm line-clamp-3">
+        </p>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Optional: smooth transition for hover scale */
+.card {
+  transition: all 0.25s ease;
+}
+</style>
