@@ -73,7 +73,7 @@ const handleLogin = () => {
       <img
         src="/superman.png"
         alt="illustration"
-        class="w-2/3 lg:w-1/2 xl:w-2/5 drop-shadow-2xl rounded-2xl"
+        class="w-4/5 lg:w-2/3 xl:w-1/2 drop-shadow-2xl rounded-2xl"
       />
     </div>
   </div>

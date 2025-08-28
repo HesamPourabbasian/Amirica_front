@@ -17,7 +17,7 @@ const toggleAudio = () => {
 <template>
   <div class="batman">
     <div class="welcome">
-      <h1>به امیریکا خوش آمدید</h1>
+      <h1>به امیر-یکا خوش آمدید</h1>
       <p>ماجراجویی ما از اینجا شروع میشه...</p>
       <div class="btns flex items-center gap-2">
         <!-- Explore Button -->

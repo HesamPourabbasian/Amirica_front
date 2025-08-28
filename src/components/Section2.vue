@@ -59,10 +59,10 @@ onMounted(async () => {
         </div>
 
         <!-- Card content -->
-        <h2 class="text-lg md:text-xl font-bold text-gray-200 mb-2 truncate">
-        </h2>
-        <p class="text-gray-400 text-xs md:text-sm line-clamp-3">
-        </p>
+        <h2
+          class="text-lg md:text-xl font-bold text-gray-200 mb-2 truncate"
+        ></h2>
+        <p class="text-gray-400 text-xs md:text-sm line-clamp-3"></p>
       </div>
     </div>
   </div>

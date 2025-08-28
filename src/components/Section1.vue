@@ -4,7 +4,7 @@
   <div class="container mx-auto p-4 sm:p-6 md:p-8">
     <div class="flex flex-col md:flex-row gap-6 items-center">
       <!-- Text Card -->
-      <div class="flex-1 p-2 sm:p-4 md:p-6">
+      <div class="sec1 flex-1 p-2 sm:p-4 md:p-6">
         <div class="p-4 sm:p-6">
           <h1
             class="text-right text-[40px] text-gray-200 font-bold tracking-wide mb-4"
@@ -53,5 +53,9 @@
 </template>
 
 <style scoped>
-/* no need for font-size overrides anymore */
+.sec1{
+  background-image: url("/web.png");
+  background-repeat: no-repeat;       /* prevent tiling */
+  background-position: top left;      /* stick it to top-left corner */
+  background-size: 30%;}
 </style>

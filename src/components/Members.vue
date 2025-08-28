@@ -42,5 +42,9 @@ const members = [
 /* Optional: add smooth hover transition */
 div[class*="hover:"] {
   transition: all 0.25s ease-in-out;
+  background-image: url("/web.png");
+  background-repeat: no-repeat; /* prevent tiling */
+  background-position:  left; /* stick it to top-left corner */
+  background-size: 20%;
 }
 </style>

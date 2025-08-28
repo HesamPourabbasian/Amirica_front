@@ -4,7 +4,7 @@
   <div class="container mx-auto p-4 mt-[50px]">
     <div class="flex flex-col md:flex-row gap-4">
       <!-- First div -->
-      <div class="flex-1 p-6 flex justify-center items-center">
+      <div class="sec3 flex-1 p-6 flex justify-center items-center">
         <img
           class="w-[200px] md:w-[300px]"
           src="/ryan.png"
@@ -54,5 +54,9 @@
 </template>
 
 <style scoped>
-/* no need for custom media queries anymore */
+.sec3{
+  background-image: url("/web.png");
+  background-repeat: no-repeat;       /* prevent tiling */
+  background-position: top right;      /* stick it to top-left corner */
+  background-size: 40%;}
 </style>
