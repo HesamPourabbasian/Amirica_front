@@ -44,8 +44,8 @@
 
       <!-- Image Card -->
       <div class="flex-1 flex items-center justify-center mt-4 md:mt-0">
-        <div class="p-2 sm:p-4 md:p-6 w-full">
-          <img class="w-full" src="/one.png" alt="illustration" />
+        <div class="p-2 sm:p-4 md:p-6 w-full flex justify-center">
+          <img class="w-[80%] mx-auto" src="/one.png" alt="illustration" />
         </div>
       </div>
     </div>
@@ -53,9 +53,10 @@
 </template>
 
 <style scoped>
-.sec1{
+.sec1 {
   background-image: url("/web.png");
-  background-repeat: no-repeat;       /* prevent tiling */
-  background-position: top left;      /* stick it to top-left corner */
-  background-size: 30%;}
+  background-repeat: no-repeat; /* prevent tiling */
+  background-position: top left; /* stick it to top-left corner */
+  background-size: 30%;
+}
 </style>

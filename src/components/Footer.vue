@@ -90,7 +90,7 @@ const developers = [
 footer{
   background-image: url("/web.png");
   background-repeat: no-repeat; /* prevent tiling */
-  background-position: top right; /* stick it to top-left corner */
+  background-position:right; /* stick it to top-left corner */
   background-size: 30%;
 
 }</style>
