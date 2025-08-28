@@ -76,7 +76,9 @@ const toggleAudio = () => {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
-  margin: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;

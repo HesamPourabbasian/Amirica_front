@@ -1,13 +1,17 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container mx-auto p-4">
-    <div class="flex flex-col md:flex-row gap-4">
-      <!-- First div -->
-      <div class="flex-1 p-6">
-        <div class="paragraph1">
-          <h1 class="text-right text-[40px]">رشد و تحول شخصی</h1>
-          <p class="text-right pt-[20px]">
+  <div class="container mx-auto p-4 sm:p-6 md:p-8">
+    <div class="flex flex-col md:flex-row gap-6 items-center">
+      <!-- Text Card -->
+      <div class="flex-1 p-2 sm:p-4 md:p-6">
+        <div class="p-4 sm:p-6">
+          <h1
+            class="text-right text-[40px] text-gray-200 font-bold tracking-wide mb-4"
+          >
+            رشد و تحول شخصی
+          </h1>
+          <p class="text-right text-gray-300 leading-relaxed text-[20px]">
             در دنیای پرشتاب و پرچالش امروز، هر جوان ایرانی بیش از هر زمان دیگری
             نیاز دارد تا مهارت‌ها، استعدادها و توانمندی‌های درونی خود را شناسایی
             و شکوفا کند. رشد فردی و سلف‌امپرومنت نه‌تنها یک انتخاب بلکه ضرورتی
@@ -23,25 +27,25 @@
             مواجهه با چالش‌های زندگی آماده می‌سازد. با ما، هر گام شما در مسیر
             یادگیری و رشد، گامی به سوی آینده‌ای روشن‌تر و موفق‌تر خواهد بود.
           </p>
+
+          <a
+            href="#"
+            class="flex text-blue-400 hover:text-sky-500 mt-4 text-sm font-semibold transition-all"
+          >
+            <img
+              class="w-5 h-5 mr-2"
+              src="/link_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+              alt="link icon"
+            />
+            اطلاعات بیشتر
+          </a>
         </div>
-        <a
-          href="#"
-          class="flex text-right text-[15px] pt-[10px] text-blue-500 hover:text-blue-700 transition"
-          ><img
-            class=""
-            src="/link_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
-            alt=""
-          />
-          اطلاعات بیشتر</a
-        >
       </div>
 
-      <!-- Second div -->
-      <div class="flex-1 text-white p-6">
-        <div class="flex justify-center">
-          <div class="">
-            <img class="one w-[700px]" src="/one.png" alt="" />
-          </div>
+      <!-- Image Card -->
+      <div class="flex-1 flex items-center justify-center mt-4 md:mt-0">
+        <div class="p-2 sm:p-4 md:p-6 w-full">
+          <img class="w-full" src="/one.png" alt="illustration" />
         </div>
       </div>
     </div>
@@ -49,9 +53,5 @@
 </template>
 
 <style scoped>
-@media (max-width: 768px) {
-  .paragraph1 h1 {
-    font-size: 25px;
-  }
-}
+/* no need for font-size overrides anymore */
 </style>

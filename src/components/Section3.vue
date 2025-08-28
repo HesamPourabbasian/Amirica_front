@@ -4,15 +4,23 @@
   <div class="container mx-auto p-4 mt-[50px]">
     <div class="flex flex-col md:flex-row gap-4">
       <!-- First div -->
-      <div class="ryan flex-1 p-6 flex justify-center items-center">
-        <img class="w-[300px]" src="/ryan.png" alt="" />
+      <div class="flex-1 p-6 flex justify-center items-center">
+        <img
+          class="w-[200px] md:w-[300px]"
+          src="/ryan.png"
+          alt="ryan illustration"
+        />
       </div>
 
       <!-- Second div -->
       <div class="flex-1 p-6">
-        <div class="paragraph1">
-          <h1 class="text-right text-[40px]">رشد و تحول شخصی</h1>
-          <p class="text-right pt-[20px]">
+        <div>
+          <h1 class="text-right text-[40px] font-bold text-gray-200">
+            رشد و تحول شخصی
+          </h1>
+          <p
+            class="text-right pt-[20px] text-[20px] text-gray-300 leading-relaxed"
+          >
             در دنیای پرشتاب و پرچالش امروز، هر جوان ایرانی بیش از هر زمان دیگری
             نیاز دارد تا مهارت‌ها، استعدادها و توانمندی‌های درونی خود را شناسایی
             و شکوفا کند. رشد فردی و سلف‌امپرومنت نه‌تنها یک انتخاب بلکه ضرورتی
@@ -31,26 +39,20 @@
         </div>
         <a
           href="#"
-          class="flex text-right text-[15px] pt-[10px] text-blue-500 hover:text-blue-700 transition"
-          ><img
-            class=""
-            src="/link_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
-            alt=""
-          />
-          اطلاعات بیشتر</a
+          class="flex items-center gap-2 text-right text-[15px] pt-[10px] text-blue-500 hover:text-blue-700 transition"
         >
+          <img
+            class="w-5 h-5"
+            src="/link_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+            alt="link icon"
+          />
+          اطلاعات بیشتر
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-@media (max-width: 768px) {
- .ryan img {
-    width: 200px;
-  }
-  .paragraph1 h1 {
-    font-size: 25px;
-  }
-}
+/* no need for custom media queries anymore */
 </style>
