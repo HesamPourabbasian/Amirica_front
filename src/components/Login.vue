@@ -16,16 +16,18 @@ const handleLogin = () => {
 
 <template>
   <div
-    class="flex flex-col md:flex-row gap-6 min-h-screen p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-black"
+    class="flex flex-col md:flex-row items-center justify-center gap-6 min-h-screen p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-black"
   >
     <!-- Login Card -->
     <div class="flex-1 flex items-center justify-center">
       <div
-        class="bg-gray-900/90 backdrop-blur-xl border border-sky-500/20 shadow-2xl rounded-2xl p-10 w-[380px] flex flex-col gap-6"
+        class="bg-gray-900/90 backdrop-blur-xl border border-sky-500/20 shadow-2xl rounded-2xl p-10 w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl flex flex-col gap-6"
       >
         <!-- Header -->
         <div class="text-center">
-          <h1 class="text-3xl font-bold text-gray-200 tracking-wide">
+          <h1
+            class="text-3xl lg:text-4xl font-bold text-gray-200 tracking-wide"
+          >
             ورود به پنل
           </h1>
         </div>
@@ -67,11 +69,11 @@ const handleLogin = () => {
     </div>
 
     <!-- Illustration -->
-    <div class="flex-1 flex items-center justify-center md:block hidden">
+    <div class="flex-1 hidden md:flex items-center justify-center">
       <img
         src="/superman.png"
         alt="illustration"
-        class="w-[60%] drop-shadow-2xl rounded-2xl"
+        class="w-2/3 lg:w-1/2 xl:w-2/5 drop-shadow-2xl rounded-2xl"
       />
     </div>
   </div>
@@ -80,10 +82,5 @@ const handleLogin = () => {
 <style scoped>
 body {
   margin: 0;
-}
-@media (max-width: 768px) {
-  .second-div {
-    display: none;
-  }
 }
 </style>
