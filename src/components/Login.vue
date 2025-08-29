@@ -21,7 +21,7 @@ const handleLogin = () => {
     <!-- Login Card -->
     <div class="flex-1 flex items-center justify-center">
       <div
-        class="bg-gray-900/90 backdrop-blur-xl border border-sky-500/20 shadow-2xl rounded-2xl p-10 w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl flex flex-col gap-6"
+        class="card bg-gray-900/90 backdrop-blur-xl border border-sky-500/20 shadow-2xl rounded-2xl p-10 w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl flex flex-col gap-6"
       >
         <!-- Header -->
         <div class="text-center">
@@ -82,5 +82,11 @@ const handleLogin = () => {
 <style scoped>
 body {
   margin: 0;
+}
+.card {
+  background-image: url("/web.png");
+  background-repeat: no-repeat; /* prevent tiling */
+  background-position:top left; /* stick it to top-left corner */
+  background-size: 40%;
 }
 </style>
