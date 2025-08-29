@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.19",
+    "@fullcalendar/daygrid": "^6.1.19",
     "@oku-ui/motion": "^0.4.3",
     "@tailwindcss/vite": "^4.1.12",
+    "fullcalendar": "^6.1.19",
     "gsap": "^3.13.0",
     "motion-v": "^1.7.0",
     "tailwindcss": "^4.1.12",

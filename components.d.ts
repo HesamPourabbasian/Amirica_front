@@ -9,6 +9,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Batman: typeof import('./src/components/Batman.vue')['default']
+    Calculator: typeof import('./src/components/Calculator.vue')['default']
+    Calendar: typeof import('./src/components/calendar.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Home: typeof import('./src/components/Home.vue')['default']
     Login: typeof import('./src/components/Login.vue')['default']

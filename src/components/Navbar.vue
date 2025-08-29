@@ -81,6 +81,13 @@ const toggleMenu = () => {
         >
           ورود
         </router-link>
+        <router-link
+          to="/calendar"
+          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide"
+          @click="toggleMenu"
+        >
+          تقویم
+        </router-link>
       </div>
     </transition>
   </nav>
