@@ -60,33 +60,41 @@ const toggleMenu = () => {
         </button>
 
         <!-- Links -->
+        <!-- Links inside sidebar -->
         <router-link
           to="/"
-          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide"
+          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide flex items-center space-x-2"
           @click="toggleMenu"
         >
-          خانه
+          <span>🏠</span>
+          <span>خانه</span>
         </router-link>
+
         <a
           href="#"
-          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide"
+          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide flex items-center space-x-2"
           @click="toggleMenu"
         >
-          درباره ما
+          <span>ℹ️</span>
+          <span>درباره ما</span>
         </a>
+
         <router-link
           to="/login"
-          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide"
+          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide flex items-center space-x-2"
           @click="toggleMenu"
         >
-          ورود
+          <span>🔑</span>
+          <span>ورود</span>
         </router-link>
+
         <router-link
           to="/calendar"
-          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide"
+          class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide flex items-center space-x-2"
           @click="toggleMenu"
         >
-          تقویم
+          <span>📅</span>
+          <span>تقویم</span>
         </router-link>
       </div>
     </transition>
