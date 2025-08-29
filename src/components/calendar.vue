@@ -9,13 +9,13 @@ onMounted(() => {
     const calendar = new Calendar(calendarEl, {
       plugins: [dayGridPlugin],
       initialView: "dayGridMonth",
-      height: "auto",
+      height: "550px",
       headerToolbar: {
         left: "prev,next today",
         center: "title",
         right: "",
       },
-      navLinks: false, // prevent clicking day/week from navigating
+      navLinks: false,
     });
     calendar.render();
   }
@@ -24,54 +24,96 @@ onMounted(() => {
 
 <template>
   <div class="page-wrapper">
-    <div id="calendar" class="calendar-rounded"></div>
+    <div id="calendar" class="calendar-luxury"></div>
   </div>
 </template>
 
 <style>
 .page-wrapper {
-  background-color: #121929;
+  background: linear-gradient(135deg, #0f1423, #121929);
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: 100px;
   display: flex;
   justify-content: center;
+  align-items: start;
   box-sizing: border-box;
 }
 
+/* Calendar container */
 #calendar {
   max-width: 1000px;
   width: 90%;
-  margin-bottom: 40px;
-  box-sizing: border-box;
-  overflow: hidden; /* ensures border-radius clips inner elements */
-  border-radius: 20px; /* adds 20px rounded corners */
-  background-color: #ffffff; /* optional: background for calendar */
+  margin-bottom: 60px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #1a1f38, #1f253c);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+#calendar:hover {
+  transform: scale(1.02);
 }
 
-/* style calendar title (month name) */
+/* Header title (month name) */
 .fc .fc-toolbar-title {
-  color: red;
-  font-weight: bold;
-  font-size: 1.5rem;
+  color: #ff4d4d; /* red accent */
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* style today's date */
+/* Toolbar buttons */
+.fc .fc-button {
+  background: #1f253c;
+  color: #a5b0c0;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.fc .fc-button:hover {
+  background: #2a3350;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Days */
+.fc .fc-daygrid-day {
+  background: #2a2f48;
+  color: #dcdcdc;
+  border-radius: 12px;
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+.fc .fc-daygrid-day:hover {
+  background: #3b4270;
+}
+
+/* Today's date */
 .fc .fc-daygrid-day.fc-day-today {
-  background-color: green !important;
+  background-color: #28a745 !important;
   color: white;
+  font-weight: 700;
+  box-shadow: 0 0 10px #28a745;
 }
 
-/* style all other days */
-.fc .fc-daygrid-day:not(.fc-day-today) {
-  background-color: white;
-  color: black;
+/* Other day numbers */
+.fc .fc-daygrid-day-number {
+  font-weight: 500;
+  color: inherit;
 }
 
-/* responsive adjustment */
+/* Responsive */
 @media (max-width: 500px) {
   #calendar {
     width: 95%;
-    margin-bottom: 30px;
+    padding: 15px;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1.5rem;
   }
 }
 </style>

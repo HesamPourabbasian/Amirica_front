@@ -86,7 +86,7 @@ body {
 .card {
   background-image: url("/web.png");
   background-repeat: no-repeat; /* prevent tiling */
-  background-position:top left; /* stick it to top-left corner */
-  background-size: 40%;
+  background-position:bottom left; /* stick it to top-left corner */
+  background-size: 100%;
 }
 </style>
