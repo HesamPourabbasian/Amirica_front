@@ -70,14 +70,14 @@ const toggleMenu = () => {
           <span>خانه</span>
         </router-link>
 
-        <a
-          href="#"
+        <router-link
+          to="/about"
           class="text-gray-200 hover:text-sky-400 text-lg font-semibold transition-all tracking-wide flex items-center space-x-2"
           @click="toggleMenu"
         >
           <span>ℹ️</span>
           <span>درباره ما</span>
-        </a>
+      </router-link>
 
         <router-link
           to="/login"
