@@ -51,9 +51,6 @@ onMounted(() => {
   padding: 20px;
   transition: transform 0.3s ease;
 }
-#calendar:hover {
-  transform: scale(1.02);
-}
 
 /* Header title (month name) */
 .fc .fc-toolbar-title {
@@ -84,7 +81,6 @@ onMounted(() => {
 .fc .fc-daygrid-day {
   background: #2a2f48;
   color: #dcdcdc;
-  border-radius: 12px;
   margin: 4px;
   transition: all 0.3s ease;
 }
@@ -104,6 +100,14 @@ onMounted(() => {
 .fc .fc-daygrid-day-number {
   font-weight: 500;
   color: inherit;
+}
+
+/* ALL weekdays (Sun–Sat) in skyblue */
+.fc .fc-col-header-cell {
+  color: skyblue !important;
+  font-weight: 700;
+  font-size: 1rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsive */
