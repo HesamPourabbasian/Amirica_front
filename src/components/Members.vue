@@ -45,10 +45,7 @@ onMounted(() => {
 }
 
 /* Page background */
-.min-h-screen {
-  background: linear-gradient(135deg, #121929 0%, #1e263c 100%);
-  font-family: "Vazirmatn", "Inter", sans-serif;
-}
+
 
 /* Ensure text is right-aligned for Persian */
 h1,
