@@ -15,6 +15,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     Home: typeof import('./src/components/Home.vue')['default']
     Login: typeof import('./src/components/Login.vue')['default']
+    MemberProfile: typeof import('./src/components/MemberProfile.vue')['default']
     Members: typeof import('./src/components/Members.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -23,5 +24,6 @@ declare module 'vue' {
     Section1: typeof import('./src/components/Section1.vue')['default']
     Section2: typeof import('./src/components/Section2.vue')['default']
     Section3: typeof import('./src/components/Section3.vue')['default']
+    UseMember: typeof import('./src/components/useMember.vue')['default']
   }
 }
