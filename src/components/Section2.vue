@@ -76,18 +76,18 @@ onMounted(async () => {
 
 /* Add titles to h2 elements using ::before based on card position */
 .card:nth-child(1) h2::before {
-  content: "جمع بودجه";
+  content: "جمع امتیازات";
 }
 
 .card:nth-child(2) h2::before {
-  content: "تعداد اعضا";
-}
-
-.card:nth-child(3) h2::before {
   content: "آمار فحاشی";
 }
 
+.card:nth-child(3) h2::before {
+  content: "تعداد اعضا";
+}
+
 .card:nth-child(4) h2::before {
-  content: "جمع امتیازات";
+  content: "جمع بودجه";
 }
 </style>
