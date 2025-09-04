@@ -15,6 +15,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     Home: typeof import('./src/components/Home.vue')['default']
     Login: typeof import('./src/components/Login.vue')['default']
+    Marquee: typeof import('./src/components/Marquee.vue')['default']
     MemberProfile: typeof import('./src/components/MemberProfile.vue')['default']
     Members: typeof import('./src/components/Members.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
