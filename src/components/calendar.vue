@@ -50,6 +50,7 @@ onMounted(() => {
   overflow: hidden;
   padding: 20px;
   transition: transform 0.3s ease;
+  border: 2px solid #808080; /* Gray border */
 }
 
 /* Header title (month name) */
@@ -64,7 +65,7 @@ onMounted(() => {
 .fc .fc-button {
   background: #1f253c;
   color: #a5b0c0;
-  border: none;
+  border: 2px solid #808080; /* Gray border */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   padding: 0.5rem 1rem;
@@ -83,6 +84,7 @@ onMounted(() => {
   color: #dcdcdc;
   margin: 4px;
   transition: all 0.3s ease;
+  border: 1px solid #808080; /* Gray border */
 }
 .fc .fc-daygrid-day:hover {
   background: #3b4270;
@@ -102,12 +104,24 @@ onMounted(() => {
   color: inherit;
 }
 
-/* ALL weekdays (Sun–Sat) in skyblue */
+/* Weekday headers (Sun–Sat) */
 .fc .fc-col-header-cell {
   color: skyblue !important;
   font-weight: 700;
   font-size: 1rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  border: 1px solid #808080; /* Gray border */
+}
+
+/* Day grid table borders */
+.fc .fc-daygrid {
+  border: 1px solid #808080; /* Gray border for grid container */
+}
+
+/* Ensure internal grid lines are gray */
+.fc .fc-daygrid-body,
+.fc .fc-daygrid-day-frame {
+  border-color: #808080; /* Gray border for internal grid lines */
 }
 
 /* Responsive */

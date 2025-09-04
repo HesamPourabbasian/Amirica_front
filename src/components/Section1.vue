@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="container mx-auto p-4 sm:p-6 md:p-8">
@@ -28,22 +26,15 @@
             طراحی وب، اپلیکیشن‌ها و نرم‌افزارهای دیجیتال نیز کاربرد دارد و به
             توسعه‌دهندگان و طراحان امکان می‌دهد تا تجربه‌ی بصری کاربر را پیش از
             آماده شدن محتوای واقعی، شبیه‌سازی کنند.
+            <a
+              href="#"
+              class="flex text-[20px] text-blue-400 hover:text-sky-500 mt-4 text-sm font-semibold transition-all"
+            >
+              اطلاعات بیشتر
+            </a>
           </p>
-
-          <a
-            href="#"
-            class="flex text-blue-400 hover:text-sky-500 mt-4 text-sm font-semibold transition-all"
-          >
-            <img
-              class="w-5 h-5 mr-2"
-              src="/link_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
-              alt="link icon"
-            />
-            اطلاعات بیشتر
-          </a>
         </div>
       </div>
-
       <!-- Image Card -->
       <div class="flex-1 flex items-center justify-center mt-4 md:mt-0">
         <div class="p-2 sm:p-4 md:p-6 w-full flex justify-center">
@@ -58,7 +49,98 @@
 .sec1 {
   background-image: url("/web.png");
   background-repeat: no-repeat; /* prevent tiling */
-  background-position: top left; /* stick it to top-left corner */
-  background-size: 30%;
+  background-position: top left; /* stick it to top-left corner (RTL) */
+  background-size: 30%; /* Default size */
+}
+
+/* Position the 'اطلاعات بیشتر' link inline with the paragraph */
+.sec1 a {
+  display: inline-flex; /* Keep flex for icon and text alignment */
+  margin-top: 0; /* Remove mt-4 to eliminate vertical gap */
+  vertical-align: bottom; /* Align with the bottom of the last text line */
+}
+
+/* Container adjustments for responsiveness */
+.container {
+  max-width: 100%; /* Prevent overflow on small screens */
+  padding: clamp(1rem, 4vw, 2rem); /* Responsive padding */
+  margin-top: clamp(2rem, 5vw, 3rem); /* Responsive margin-top for mt-[50px] */
+}
+
+/* Flex container adjustments */
+.container > div {
+  gap: clamp(1rem, 3vw, 1.5rem); /* Responsive gap between flex items */
+}
+
+/* Image adjustments */
+img {
+  width: clamp(60%, 80vw, 90%); /* Responsive image width */
+  max-width: 100%; /* Prevent overflow */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Typography adjustments */
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive font size (24px–40px) */
+  line-height: 1.2; /* Improve readability */
+  margin-bottom: clamp(0.5rem, 2vw, 1rem); /* Responsive margin-bottom */
+}
+
+p {
+  font-size: clamp(1rem, 3vw, 1.25rem); /* Responsive font size (16px–20px) */
+  line-height: 1.5; /* Improve readability */
+}
+
+p a {
+  font-size: clamp(
+    0.875rem,
+    2.5vw,
+    1.125rem
+  ); /* Responsive link font size (14px–18px), overrides text-sm */
+}
+
+/* Responsive padding for flex items */
+.sec1,
+.flex-1 {
+  padding: clamp(0.75rem, 2vw, 1.5rem); /* Responsive padding */
+}
+
+.sec1 > div {
+  padding: clamp(1rem, 3vw, 1.5rem); /* Responsive inner padding */
+}
+
+/* Background image and layout adjustments for smaller screens */
+@media (max-width: 640px) {
+  .sec1 {
+    background-size: 50%; /* Larger background image for visibility */
+    background-position: top center; /* Center to avoid overlap in RTL */
+  }
+
+  /* Stack image above text and center it */
+  .flex-1:last-child {
+    margin-top: clamp(0.5rem, 2vw, 1rem); /* Responsive margin-top */
+  }
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px; /* Cap container width for large screens */
+  }
+
+  .sec1 {
+    background-size: 25%; /* Smaller background image for balance */
+  }
+
+  img {
+    width: clamp(50%, 60vw, 70%); /* Slightly smaller image on large screens */
+  }
+}
+
+/* Ensure RTL text alignment */
+h1,
+p,
+p a {
+  text-align: right;
 }
 </style>

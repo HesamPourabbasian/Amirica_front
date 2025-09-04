@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import membersData from "/Users/hesam/Documents/Projects/Front_End/Vue-Projects/Amirica_front/src/assets/members-data.json";
 
 const route = useRoute();
 const member = ref(null);
+const error = ref(null);
 
 const profileKeys = [
   "شناسه",
@@ -28,9 +28,19 @@ const profileKeys = [
   "توصیه_بازی",
 ];
 
-member.value = membersData.اعضا.find(
-  (m) => m.شناسه === parseInt(route.params.id)
-);
+onMounted(async () => {
+  try {
+    const data = await import("@/assets/members-data.json");
+    const members = data.default?.اعضا || [];
+    member.value = members.find((m) => m.شناسه === Number(route.params.id));
+    if (!member.value) {
+      error.value = "عضو یافت نشد";
+    }
+  } catch (err) {
+    error.value = "خطا در بارگذاری اطلاعات";
+    console.error("Failed to load members data:", err);
+  }
+});
 
 const formatKey = (key) => key.replace(/_/g, " ");
 
