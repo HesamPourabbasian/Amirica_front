@@ -37,8 +37,8 @@
       </div>
       <!-- Image Card -->
       <div class="flex-1 flex items-center justify-center mt-4 md:mt-0">
-        <div class="p-2 sm:p-4 md:p-6 w-full flex justify-center">
-          <img class="w-[80%] mx-auto" src="/one.png" alt="illustration" />
+        <div class="p-2 flex justify-center">
+          <img class="" src="/one.png" alt="illustration" />
         </div>
       </div>
     </div>
@@ -74,9 +74,14 @@
 
 /* Image adjustments */
 img {
-  width: clamp(60%, 80vw, 90%); /* Responsive image width */
+  width: clamp(100%, 100vw, 100%); /* Full width for smaller screens */
   max-width: 100%; /* Prevent overflow */
   height: auto; /* Maintain aspect ratio */
+}
+
+/* Reduce padding in Image Card container to allow larger image */
+.flex-1:last-child > div {
+  padding: clamp(0.5rem, 1vw, 1rem); /* Reduced padding for more image space */
 }
 
 /* Typography adjustments */
@@ -133,7 +138,7 @@ p a {
   }
 
   img {
-    width: clamp(50%, 60vw, 70%); /* Slightly smaller image on large screens */
+    width: clamp(80%, 85vw, 90%); /* Larger image on large screens */
   }
 }
 

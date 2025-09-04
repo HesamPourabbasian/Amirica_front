@@ -102,7 +102,9 @@ p a {
   .flex-1 {
     padding: clamp(0.75rem, 2vw, 1rem); /* Smaller padding on mobile */
   }
-
+.sec3 img {
+    width: clamp(150px, 60vw, 200px); /* Slightly larger image on small screens */
+  }
   /* Stack image above text for very small screens */
   .sec3 {
     display: flex;
