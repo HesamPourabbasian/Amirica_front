@@ -1,6 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { gsap } from "gsap";
+import { ref } from "vue";
 
 const icons = [
   {
@@ -27,58 +26,35 @@ const icons = [
     name: "Instagram",
     src: "https://cdn.jsdelivr.net/npm/simple-icons@v13.1.0/icons/instagram.svg",
   },
-
   {
     name: "ChatGPT",
     src: "https://cdn.jsdelivr.net/npm/simple-icons@v13.1.0/icons/openai.svg",
   },
 ];
-
-const marquee = ref(null);
-
-onMounted(() => {
-  const content = marquee.value;
-
-  // Get width of first half (original list)
-  const firstHalfWidth = Array.from(content.children)
-    .slice(1, icons.length)
-    .reduce((sum, item) => sum + item.offsetWidth, 0);
-
-  // Animate continuously
-  gsap.to(content, {
-    x: -firstHalfWidth,
-    duration: 10,
-    ease: "linear",
-    repeat: 1,
-    modifiers: {
-      x: gsap.utils.unitize((x) => parseFloat(x) % firstHalfWidth),
-    },
-  });
-});
 </script>
 
 <template>
   <div class="flex items-center justify-center py-6">
-    <div class="marquee-container w-full">
-      <div class="marquee-content" ref="marquee">
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
         <!-- First set of icons -->
-        <div class="marquee-item" v-for="icon in icons" :key="icon.name">
+        <div v-for="icon in icons" :key="icon.name" class="marquee-item">
           <img
             :src="icon.src"
             :alt="icon.name"
-            class="h-16 w-16 object-contain icon-white"
+            class="h-16 w-16 mr-[50px] object-contain icon-white"
           />
         </div>
-        <!-- Duplicate for seamless loop -->
+        <!-- Duplicate set for seamless infinite loop -->
         <div
-          class="marquee-item"
           v-for="icon in icons"
           :key="'dup-' + icon.name"
+          class="marquee-item"
         >
           <img
             :src="icon.src"
             :alt="icon.name"
-            class="h-16 w-16 object-contain icon-white"
+            class="h-16 w-16 mr-[50px] object-contain icon-white"
           />
         </div>
       </div>
@@ -87,19 +63,32 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.marquee-container {
+.marquee-wrapper {
   overflow: hidden;
-  white-space: nowrap;
+  width: 100%;
 }
-.marquee-content {
-  display: inline-flex;
-  align-items: center;
+
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  animation: marquee 15s linear infinite;
 }
+
 .marquee-item {
   flex: 0 0 auto;
-  margin: 0 2rem;
 }
+
 .icon-white {
-  filter: brightness(0) invert(1); /* Makes monochrome SVGs white */
+  filter: brightness(0) invert(1);
+}
+
+/* Keyframes for smooth left-to-right scroll */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 </style>
