@@ -59,6 +59,7 @@ const formatValue = (key, value) => {
     dir="rtl"
     class="min-h-screen mt-[50px] flex flex-col items-center justify-start py-6 px-3 sm:px-6 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900"
   >
+
     <div v-if="member" class="profile-card animate-fade-in">
       <!-- Profile Header -->
       <div class="profile-header relative">

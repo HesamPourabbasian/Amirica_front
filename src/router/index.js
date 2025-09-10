@@ -29,17 +29,13 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
+    scrollBehavior(to, from, savedPosition) {
+        // If browser back/forward, restore position
+        if (savedPosition) {
+            return savedPosition;
+        }
+        // Always scroll to top on new page
+        return { top: 0 };
+    },
 });
-
-// Guard
-router.beforeEach((to, from, next) => {
-    const userRole = localStorage.getItem("userRole");
-
-    if (to.meta.requiresAuth && !userRole) {
-        return next({ path: "/login", query: { redirect: to.fullPath } });
-    }
-
-    next();
-});
-
 export default router;
