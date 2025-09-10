@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     About: typeof import('./src/components/About.vue')['default']
+    AdminDashboard: typeof import('./src/components/views/AdminDashboard.vue')['default']
     Batman: typeof import('./src/components/Batman.vue')['default']
     Calculator: typeof import('./src/components/Calculator.vue')['default']
     Calendar: typeof import('./src/components/calendar.vue')['default']
@@ -19,12 +20,15 @@ declare module 'vue' {
     MemberProfile: typeof import('./src/components/MemberProfile.vue')['default']
     Members: typeof import('./src/components/Members.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
+    NotFound: typeof import('./src/components/views/NotFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sample: typeof import('./src/components/Sample.vue')['default']
     Section1: typeof import('./src/components/Section1.vue')['default']
     Section2: typeof import('./src/components/Section2.vue')['default']
     Section3: typeof import('./src/components/Section3.vue')['default']
+    Slider: typeof import('./src/components/slider.vue')['default']
     UseMember: typeof import('./src/components/useMember.vue')['default']
+    UserDashboard: typeof import('./src/components/views/UserDashboard.vue')['default']
   }
 }
