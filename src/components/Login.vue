@@ -1,17 +1,36 @@
 <script setup>
-import { ref } from "vue";
+  import { ref } from "vue";
+  import { useRouter } from "vue-router";
+  import { mockUsers } from "../mockUsers.js";
 
-const username = ref("");
-const password = ref("");
+  const username = ref("");
+  const password = ref("");
+  const router = useRouter();
 
-const handleLogin = () => {
+  const handleLogin = () => {
   if (!username.value || !password.value) {
-    alert("لطفا نام کاربری و رمز عبور را وارد کنید");
-    return;
-  }
-  console.log("Username:", username.value, "Password:", password.value);
-  alert(`Logged in as ${username.value}`);
+  alert("لطفا نام کاربری و رمز عبور را وارد کنید");
+  return;
+}
+
+  // Check against mock users
+  const user = mockUsers.find(
+  (u) => u.username === username.value && u.password === password.value
+  );
+
+  if (!user) {
+  alert("نام کاربری یا رمز عبور اشتباه است");
+  return;
+}
+
+  // Redirect based on role
+  if (user.role === "admin") {
+  router.push("/admin");
+} else {
+  router.push("/user");
+}
 };
+
 </script>
 
 <template>

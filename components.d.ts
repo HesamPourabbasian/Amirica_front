@@ -9,10 +9,11 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     About: typeof import('./src/components/About.vue')['default']
-    AdminDashboard: typeof import('./src/components/views/AdminDashboard.vue')['default']
+    AdminDashboard: typeof import('./src/components/AdminDashboard.vue')['default']
     Batman: typeof import('./src/components/Batman.vue')['default']
     Calculator: typeof import('./src/components/Calculator.vue')['default']
     Calendar: typeof import('./src/components/calendar.vue')['default']
+    Dashboard: typeof import('./src/components/Dashboard.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Home: typeof import('./src/components/Home.vue')['default']
     Login: typeof import('./src/components/Login.vue')['default']
@@ -29,6 +30,6 @@ declare module 'vue' {
     Section3: typeof import('./src/components/Section3.vue')['default']
     Slider: typeof import('./src/components/slider.vue')['default']
     UseMember: typeof import('./src/components/useMember.vue')['default']
-    UserDashboard: typeof import('./src/components/views/UserDashboard.vue')['default']
+    UserDashboard: typeof import('./src/components/UserDashboard.vue')['default']
   }
 }
