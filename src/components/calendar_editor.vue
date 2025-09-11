@@ -1,4 +1,5 @@
 <template>
+  <div class="h-[70px] bg-[#121929]"></div>
   <div class="flex">
     <AdminSidebar />
     <div class="w-[85%] h-[100vh] p-6 pt-[100px] bg-[#121929]">

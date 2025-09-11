@@ -1,4 +1,6 @@
 <template>
+    <div class="h-[70px] bg-[#121929]"></div>
+
   <div class="flex">
     <!-- Sidebar -->
     <AdminSidebar />
