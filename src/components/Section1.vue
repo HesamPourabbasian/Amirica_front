@@ -11,7 +11,7 @@
           >
             لورم ایپسوم
           </h1>
-          <p class="text-right text-yellow-100 leading-relaxed text-[20px]">
+          <p class="text-right text-yellow-100  text-[20px] leading-[35px]">
             لورم ایپسوم متن ساختگی است که از صنعت چاپ و صفحه‌آرایی نشأت گرفته و
             امروزه به‌عنوان متن جایگزین در طراحی‌های گرافیکی و وب استفاده
             می‌شود. این متن به طراحان کمک می‌کند تا شکل و ظاهر نهایی طرح را بدون
@@ -93,7 +93,6 @@ h1 {
 
 p {
   font-size: clamp(1rem, 3vw, 1.25rem); /* Responsive font size (16px–20px) */
-  line-height: 1.5; /* Improve readability */
 }
 
 p a {
@@ -138,7 +137,7 @@ p a {
   }
 
   img {
-    width: clamp(80%, 85vw, 90%); /* Larger image on large screens */
+    width: 100%; /* Larger image on large screens */
   }
 }
 

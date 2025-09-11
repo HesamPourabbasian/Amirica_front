@@ -8,7 +8,7 @@ import AdminDashboard from "../components/AdminDashboard.vue";
 import UserDashboard from "../components/UserDashboard.vue";
 import AdminProfileEdit from "@/components/AdminProfileEdit.vue";
 import calendar_ed from "../components/calendar_editor.vue"
-
+import violations from "../components/violations.vue"
 const routes = [
     { path: "/", component: Home },
     { path: "/login", component: Login },
@@ -27,7 +27,8 @@ const routes = [
     { path: "/admin", component: AdminDashboard },
     { path: "/user", component: UserDashboard },
     {path: '/edit-profile-admin', component: AdminProfileEdit},
-    {path: '/cal_ed' ,component: calendar_ed }
+    {path: '/cal_ed' ,component: calendar_ed },
+    {path: '/violations', component: violations}
 
 ];
 

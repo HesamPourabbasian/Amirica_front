@@ -6,7 +6,7 @@
       <!-- First div -->
       <div class="sec3 flex-1 p-6 flex justify-center items-center">
         <img
-          class="w-[200px] md:w-[300px]"
+          class=" sm:w-[250px] md:w-[300px] lg:w-[500px]"
           src="/ryan.png"
           alt="ryan illustration"
         />
@@ -19,7 +19,7 @@
             لورم ایپسوم
           </h1>
           <p
-            class="text-right pt-[20px] text-[20px] text-yellow-100 leading-relaxed"
+            class="text-right pt-[20px] text-[20px] text-yellow-100 leading-[35px]"
           >
             لورم ایپسوم متن ساختگی است که از صنعت چاپ و صفحه‌آرایی نشأت گرفته و
             امروزه به‌عنوان متن جایگزین در طراحی‌های گرافیکی و وب استفاده
@@ -51,83 +51,77 @@
 <style scoped>
 .sec3 {
   background-image: url("/web.png");
-  background-repeat: no-repeat; /* prevent tiling */
-  background-position: top right; /* stick it to top-right corner (RTL) */
-  background-size: 40%; /* Default size */
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 40%;
 }
 
-/* Container adjustments for responsiveness */
+/* Container adjustments */
 .container {
-  max-width: 100%; /* Prevent overflow on small screens */
-  padding: clamp(1rem, 4vw, 2rem); /* Responsive padding */
-  margin-top: clamp(2rem, 5vw, 3rem); /* Responsive margin-top */
-}
-
-/* Flex container adjustments */
-.container > div {
-  gap: clamp(1rem, 3vw, 1.5rem); /* Responsive gap between flex items */
+  max-width: 100%;
+  padding: clamp(1rem, 4vw, 2rem);
+  margin-top: clamp(2rem, 5vw, 3rem);
 }
 
 /* Image adjustments */
 .sec3 img {
-  width: clamp(150px, 40vw, 250px); /* Responsive image width */
-  max-width: 100%; /* Prevent overflow */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
 }
 
-/* Typography adjustments */
+/* Typography */
 h1 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive font size */
-  line-height: 1.2; /* Improve readability */
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  line-height: 1.2;
 }
 
 p {
-  font-size: clamp(1rem, 3vw, 1.25rem); /* Responsive font size */
-  padding-top: clamp(0.5rem, 2vw, 1rem); /* Responsive padding-top */
-  line-height: 1.5; /* Improve readability */
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  padding-top: clamp(0.5rem, 2vw, 1rem);
 }
 
 p a {
-  font-size: clamp(0.875rem, 2.5vw, 1.125rem); /* Responsive link font size */
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
 }
 
-/* Background image adjustments for smaller screens */
+/* Mobile adjustments */
 @media (max-width: 640px) {
   .sec3 {
-    background-size: 60%; /* Larger background image on small screens */
-    background-position: top center; /* Center for better visibility */
+    background-size: 60%;
+    background-position: top center;
   }
 
   .sec3,
   .flex-1 {
-    padding: clamp(0.75rem, 2vw, 1rem); /* Smaller padding on mobile */
-  }
-.sec3 img {
-    width: clamp(150px, 60vw, 200px); /* Slightly larger image on small screens */
-  }
-  /* Stack image above text for very small screens */
-  .sec3 {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-/* Adjustments for larger screens */
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1200px; /* Cap container width for large screens */
-  }
-
-  .sec3 {
-    background-size: 30%; /* Slightly smaller background image on large screens */
+    padding: clamp(0.75rem, 2vw, 1rem);
   }
 
   .sec3 img {
-    width: clamp(250px, 25vw, 350px); /* Larger image on big screens */
+    width: 90%;
+  }
+
+  /* Stack image above text on mobile */
+  .flex.flex-col.md\\:flex-row {
+    flex-direction: column;
   }
 }
 
-/* Ensure RTL text alignment */
+/* Large screen adjustments */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .sec3 {
+    background-size: 30%;
+  }
+
+  .sec3 img {
+    width: clamp(250px, 25vw, 350px);
+  }
+}
+
+/* RTL text */
 h1,
 p,
 p a {

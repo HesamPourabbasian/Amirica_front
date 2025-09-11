@@ -34,5 +34,6 @@ declare module 'vue' {
     Slider: typeof import('./src/components/slider.vue')['default']
     UseMember: typeof import('./src/components/useMember.vue')['default']
     UserDashboard: typeof import('./src/components/UserDashboard.vue')['default']
+    Violations: typeof import('./src/components/violations.vue')['default']
   }
 }
