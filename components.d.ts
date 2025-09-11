@@ -10,9 +10,12 @@ declare module 'vue' {
   export interface GlobalComponents {
     About: typeof import('./src/components/About.vue')['default']
     AdminDashboard: typeof import('./src/components/AdminDashboard.vue')['default']
+    AdminProfileEdit: typeof import('./src/components/AdminProfileEdit.vue')['default']
+    AdminSidebar: typeof import('./src/components/AdminSidebar.vue')['default']
     Batman: typeof import('./src/components/Batman.vue')['default']
     Calculator: typeof import('./src/components/Calculator.vue')['default']
     Calendar: typeof import('./src/components/calendar.vue')['default']
+    Calendar_editor: typeof import('./src/components/calendar_editor.vue')['default']
     Dashboard: typeof import('./src/components/Dashboard.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Home: typeof import('./src/components/Home.vue')['default']

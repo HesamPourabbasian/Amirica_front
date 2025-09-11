@@ -6,6 +6,8 @@ import About from "../components/About.vue";
 import MemberProfile from "../components/MemberProfile.vue";
 import AdminDashboard from "../components/AdminDashboard.vue";
 import UserDashboard from "../components/UserDashboard.vue";
+import AdminProfileEdit from "@/components/AdminProfileEdit.vue";
+import calendar_ed from "../components/calendar_editor.vue"
 
 const routes = [
     { path: "/", component: Home },
@@ -24,6 +26,9 @@ const routes = [
     { path: "/member/:id", component: MemberProfile, props: true, meta: { requiresAuth: true } },
     { path: "/admin", component: AdminDashboard },
     { path: "/user", component: UserDashboard },
+    {path: '/edit-profile-admin', component: AdminProfileEdit},
+    {path: '/cal_ed' ,component: calendar_ed }
+
 ];
 
 const router = createRouter({
