@@ -6,6 +6,9 @@ import AdminSidebar from './AdminSidebar.vue';
 
 
 <template>
+    <div class="flex">
     <AdminSidebar/>
     ثبت تخلف
+
+    </div>
 </template>
