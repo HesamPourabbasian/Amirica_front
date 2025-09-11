@@ -4,16 +4,18 @@
     <AdminSidebar />
 
     <!-- Main Content -->
-    <div class="flex-1 p-6 pt-[100px] h-[100vh]  bg-[#121929]">
+    <div class="flex-1 p-6 pt-[100px] h-[100vh] bg-[#121929]">
       <!-- خوش‌آمدگویی -->
-      <h1 class="text-2xl text-white font-bold mb-4">سلام {{ admin.name }} 👋 به پنل خودت خوش آمدی</h1>
+      <h1 class="text-2xl text-white font-bold mb-4">
+        سلام {{ admin.name }} 👋 به پنل خودت خوش آمدی
+      </h1>
 
       <!-- پروفایل -->
       <div class="flex items-center space-x-4 mb-6">
         <img
-            :src="admin.avatar"
-            alt="Admin Avatar"
-            class="w-20 h-20 rounded-full border"
+          :src="admin.avatar"
+          alt="Admin Avatar"
+          class="w-20 h-20 rounded-full border"
         />
         <div>
           <h2 class="text-xl text-amber-50 font-semibold">{{ admin.name }}</h2>
@@ -62,8 +64,7 @@ const stats = reactive({
 });
 </script>
 <style scoped>
-body{
+body {
   background-color: #121929;
-
 }
 </style>

@@ -42,5 +42,7 @@ const router = createRouter({
         // Always scroll to top on new page
         return { top: 0 };
     },
+
 });
+
 export default router;
