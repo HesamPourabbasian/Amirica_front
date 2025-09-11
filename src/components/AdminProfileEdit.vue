@@ -1,24 +1,30 @@
 <template>
-  <div class="h-[70px] bg-[#121929]"></div>
+  <div class="h-[80px] bg-[#121929]"></div>
 
   <div class="flex">
     <AdminSidebar />
+
+    <!-- Main container -->
     <div
-      class="p-6 bg-[#121929] w-[85%] pt-[100px] shadow-xl font-sans"
+      class="p-6 bg-gradient-to-br from-[#121929] via-[#1b2436] to-[#121929] w-[85%] pt-[50px] min-h-screen shadow-xl font-sans"
       dir="rtl"
     >
-      <h1 class="text-4xl font-extrabold mb-10 text-white text-center">
+      <h1
+        class="text-4xl font-extrabold mb-10 text-white text-center drop-shadow-lg"
+      >
         ویرایش پروفایل ادمین
       </h1>
+
+      <!-- Form card -->
       <form
         @submit.prevent="saveProfile"
-        class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#121929] p-8 rounded-2xl shadow-lg"
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#1c2436]/80 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-gray-700/50"
       >
         <!-- عکس پروفایل -->
         <div class="md:col-span-2 flex flex-col items-center">
           <label class="block text-white font-semibold mb-3">عکس پروفایل</label>
           <div
-            class="relative border-2 border-dashed rounded-2xl p-6 w-52 h-52 flex items-center justify-center cursor-pointer border-amber-200 hover:border-blue-600 transition duration-300"
+            class="relative border-2 border-dashed rounded-2xl p-6 w-52 h-52 flex items-center justify-center cursor-pointer border-amber-200 hover:border-blue-500 transition-all duration-300 bg-[#202a3b]/60"
             @dragover.prevent
             @drop.prevent="handleDrop"
             @click="fileInput.click()"
@@ -34,16 +40,16 @@
               v-if="previewImage"
               :src="previewImage"
               alt="پروفایل"
-              class="w-full h-full object-cover rounded-2xl shadow-md"
+              class="w-full h-full object-cover rounded-2xl shadow-lg"
             />
-            <span v-else class="text-gray-500 text-center text-sm"
-              >فایل را بکشید یا کلیک کنید</span
-            >
+            <span v-else class="text-gray-400 text-center text-sm">
+              فایل را بکشید یا کلیک کنید
+            </span>
           </div>
-          <p v-if="imageError" class="text-red-500 text-sm mt-2">
+          <p v-if="imageError" class="text-red-400 text-sm mt-2">
             {{ imageError }}
           </p>
-          <p class="text-sm text-gray-500 mt-2">
+          <p class="text-sm text-gray-400 mt-2">
             فرمت‌های مجاز: JPG, PNG (حداکثر 2MB)
           </p>
         </div>
@@ -54,22 +60,21 @@
           <input
             v-model="profile.شناسه"
             type="number"
-            class="w-full border rounded-lg p-3 bg-red-300 cursor-not-allowed"
+            class="w-full border border-gray-600 rounded-lg p-3 bg-gray-700/60 text-gray-300 cursor-not-allowed"
             disabled
           />
         </div>
 
-        <!-- نام -->
         <!-- نام -->
         <div>
           <label class="block text-white font-semibold mb-2">نام</label>
           <input
             v-model="profile.نام"
             type="text"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
+            class="w-full border border-gray-600 bg-gray-700/60 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
             :class="{ 'border-red-500': errors.نام }"
           />
-          <p v-if="errors.نام" class="text-red-500 text-sm mt-1">
+          <p v-if="errors.نام" class="text-red-400 text-sm mt-1">
             {{ errors.نام }}
           </p>
         </div>
@@ -82,10 +87,10 @@
           <input
             v-model="profile.نام_خانوادگی"
             type="text"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
+            class="w-full border border-gray-600 bg-gray-700/60 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
             :class="{ 'border-red-500': errors.نام_خانوادگی }"
           />
-          <p v-if="errors.نام_خانوادگی" class="text-red-500 text-sm mt-1">
+          <p v-if="errors.نام_خانوادگی" class="text-red-400 text-sm mt-1">
             {{ errors.نام_خانوادگی }}
           </p>
         </div>
@@ -96,7 +101,7 @@
           <input
             v-model="profile.تاریخ_تولد"
             type="date"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
+            class="w-full border border-gray-600 bg-gray-700/60 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
           />
         </div>
 
@@ -106,79 +111,21 @@
           <input
             v-model="profile.رشته_تحصیلی"
             type="text"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
+            class="w-full border border-gray-600 bg-gray-700/60 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
           />
         </div>
 
-        <!-- لقب -->
-        <div>
-          <label class="block text-white font-semibold mb-2">لقب</label>
-          <input
-            v-model="profile.لقب"
-            type="text"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
-          />
-        </div>
-
-        <!-- شغل کنونی -->
-        <div>
-          <label class="block text-white font-semibold mb-2">شغل کنونی</label>
-          <input
-            v-model="profile.شغل_کنونی"
-            type="text"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
-          />
-        </div>
-
-        <!-- علایق -->
-        <div class="md:col-span-2">
-          <label class="block text-white font-semibold mb-2">علایق</label>
-          <textarea
-            v-model="profile.علایق"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
-            rows="4"
-          ></textarea>
-        </div>
-
-        <!-- مهارت‌ها -->
-        <div class="md:col-span-2">
-          <label class="block text-white font-semibold mb-2">مهارت‌ها</label>
-          <textarea
-            v-model="profile.مهارت‌ها"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
-            rows="4"
-          ></textarea>
-        </div>
-
-        <!-- ویژگی‌های شخصیتی -->
-        <div class="md:col-span-2">
-          <label class="block text-white font-semibold mb-2"
-            >ویژگی‌های شخصیتی</label
-          >
-          <textarea
-            v-model="profile.ویژگی‌های_شخصیتی"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
-            rows="4"
-          ></textarea>
-        </div>
-
-        <!-- نقش در گروه -->
-        <div>
-          <label class="block text-white font-semibold mb-2">نقش در گروه</label>
-          <input
-            v-model="profile.نقش_در_گروه"
-            type="text"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
-          />
-        </div>
-
-        <!-- شعار -->
-        <div class="md:col-span-2">
-          <label class="block text-white font-semibold mb-2">شعار</label>
-          <input
-            v-model="profile.شعار"
-            type="text"
-            class="w-full border bg-gray-500 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
+        <!-- سایر فیلدها -->
+        <div v-for="field in fields" :key="field.key" :class="field.class">
+          <label class="block text-white font-semibold mb-2">{{
+            field.label
+          }}</label>
+          <component
+            :is="field.type === 'textarea' ? 'textarea' : 'input'"
+            v-model="profile[field.key]"
+            :type="field.type !== 'textarea' ? 'text' : undefined"
+            :rows="field.type === 'textarea' ? 4 : undefined"
+            class="w-full border border-gray-600 bg-gray-700/60 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition"
           />
         </div>
 
@@ -186,7 +133,7 @@
         <div class="md:col-span-2 flex justify-center mt-6">
           <button
             type="submit"
-            class="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg transition duration-300 ease-in-out flex items-center gap-2 transform hover:scale-105 hover:shadow-2xl"
+            class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-10 py-3 rounded-xl shadow-lg transition-transform duration-300 ease-in-out flex items-center gap-2 transform hover:scale-105 hover:shadow-2xl"
           >
             <svg
               class="w-5 h-5"
@@ -217,10 +164,7 @@ import AdminSidebar from "@/components/AdminSidebar.vue";
 const fileInput = ref(null);
 const previewImage = ref(null);
 const imageError = ref("");
-const errors = reactive({
-  نام: "",
-  نام_خانوادگی: "",
-});
+const errors = reactive({ نام: "", نام_خانوادگی: "" });
 
 const profile = reactive({
   شناسه: 1,
@@ -234,10 +178,29 @@ const profile = reactive({
   علایق: "",
   مهارت‌ها: "",
   ویژگی‌های_شخصیتی: "",
-  بدهی‌ها: "",
   نقش_در_گروه: "",
   شعار: "",
 });
+
+const fields = [
+  { key: "لقب", label: "لقب" },
+  { key: "شغل_کنونی", label: "شغل کنونی" },
+  { key: "علایق", label: "علایق", type: "textarea", class: "md:col-span-2" },
+  {
+    key: "مهارت‌ها",
+    label: "مهارت‌ها",
+    type: "textarea",
+    class: "md:col-span-2",
+  },
+  {
+    key: "ویژگی‌های_شخصیتی",
+    label: "ویژگی‌های شخصیتی",
+    type: "textarea",
+    class: "md:col-span-2",
+  },
+  { key: "نقش_در_گروه", label: "نقش در گروه" },
+  { key: "شعار", label: "شعار", class: "md:col-span-2" },
+];
 
 const validateForm = () => {
   let isValid = true;
@@ -256,9 +219,8 @@ const validateForm = () => {
 };
 
 const validateImage = (file) => {
-  const maxSize = 2 * 1024 * 1024; // 2MB
+  const maxSize = 2 * 1024 * 1024;
   const allowedTypes = ["image/jpeg", "image/png"];
-
   if (!allowedTypes.includes(file.type)) {
     imageError.value = "فقط فرمت‌های JPG و PNG مجاز هستند";
     return false;
@@ -289,17 +251,15 @@ const handleDrop = (e) => {
 };
 
 const saveProfile = () => {
-  if (!validateForm()) {
-    return;
-  }
+  if (!validateForm()) return;
   console.log("Profile Saved:", profile);
   alert("پروفایل با موفقیت ذخیره شد ✅");
 };
 </script>
 
 <style scoped>
-/* پشتیبانی از فونت فارسی */
 @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap");
+
 body,
 input,
 textarea,

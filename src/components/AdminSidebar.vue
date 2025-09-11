@@ -1,82 +1,119 @@
 <template>
-  <div class="w-[20%] sm:w-64 bg-gray-800 text-white flex flex-col p-2 sm:p-4 space-y-4 pt-[100px] sm:pt-0">
-
-    <h2 class="hidden sm:block text-xl font-bold mb-4 text-right pt-[100px]">
+  <div
+    class="w-[15%] sm:w-64 bg-gray-900 text-white flex flex-col p-[5px] sm:p-4 shadow-lg"
+  >
+    <!-- Header only on large screens -->
+    <h2 class="hidden sm:block text-2xl font-bold mb-6 text-right">
       منوی ادمین
     </h2>
 
-    <!-- داشبورد -->
-    <router-link
-        :class="linkClass('/admin')"
-        to="/admin"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6"/>
-      </svg>
-      <span class="hidden sm:inline">داشبورد</span>
+    <!-- Dashboard -->
+    <router-link :class="linkClass('/admin')" to="/admin">
+      <span
+        class="material-icons-outlined text-gray-200 group-hover:text-white transition-colors"
+      >
+        dashboard
+      </span>
+      <span
+        class="hidden sm:inline ml-3 font-medium group-hover:text-white transition-colors"
+      >
+        داشبورد
+      </span>
+      <span
+        v-if="isActive('/admin')"
+        class="absolute left-0 top-0 h-full w-1 bg-blue-500 rounded-tr rounded-br"
+      ></span>
     </router-link>
 
-    <!-- ویرایش پروفایل -->
+    <!-- Edit Profile -->
     <router-link
-        :class="linkClass('/edit-profile-admin')"
-        to="/edit-profile-admin"
+      :class="linkClass('/edit-profile-admin')"
+      to="/edit-profile-admin"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-      </svg>
-      <span class="hidden sm:inline">ویرایش پروفایل ادمین</span>
+      <span
+        class="material-icons-outlined text-gray-200 group-hover:text-white transition-colors"
+      >
+        manage_accounts
+      </span>
+      <span
+        class="hidden sm:inline ml-3 font-medium group-hover:text-white transition-colors"
+      >
+        ویرایش پروفایل ادمین
+      </span>
+      <span
+        v-if="isActive('/edit-profile-admin')"
+        class="absolute left-0 top-0 h-full w-1 bg-blue-500 rounded-tr rounded-br"
+      ></span>
     </router-link>
 
-    <!-- ویرایش تقویم -->
-    <router-link
-        :class="linkClass('/cal_ed')"
-        to="/cal_ed"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-      </svg>
-      <span class="hidden sm:inline">ویرایش تقویم</span>
+    <!-- Calendar Edit -->
+    <router-link :class="linkClass('/cal_ed')" to="/cal_ed">
+      <span
+        class="material-icons-outlined text-gray-200 group-hover:text-white transition-colors"
+      >
+        calendar_month
+      </span>
+      <span
+        class="hidden sm:inline ml-3 font-medium group-hover:text-white transition-colors"
+      >
+        ویرایش تقویم
+      </span>
+      <span
+        v-if="isActive('/cal_ed')"
+        class="absolute left-0 top-0 h-full w-1 bg-blue-500 rounded-tr rounded-br"
+      ></span>
     </router-link>
 
-    <!-- ثبت خلافی کاربران -->
-    <router-link
-        :class="linkClass('/violations')"
-        to="/violations"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13v6M9 17h13M9 17l-3.5-3.5M9 11L5.5 7.5"/>
-      </svg>
-      <span class="hidden sm:inline">ثبت خلافی کاربران</span>
+    <!-- Violations -->
+    <router-link :class="linkClass('/violations')" to="/violations">
+      <span
+        class="material-icons-outlined text-gray-200 group-hover:text-white transition-colors"
+      >
+        gavel
+      </span>
+      <span
+        class="hidden sm:inline ml-3 font-medium group-hover:text-white transition-colors"
+      >
+        ثبت خلافی کاربران
+      </span>
+      <span
+        v-if="isActive('/violations')"
+        class="absolute left-0 top-0 h-full w-1 bg-blue-500 rounded-tr rounded-br"
+      ></span>
     </router-link>
 
-    <!-- خروج -->
+    <!-- Logout -->
     <router-link
-        :class="[
-          'p-2 rounded flex justify-center sm:justify-start items-center gap-2 mt-auto transition-colors duration-500',
-          'bg-red-600 hover:bg-red-700'
-        ]"
-        to="/"
+      class="p-2 rounded flex justify-center sm:justify-start items-center gap-2 mt-auto transition-all duration-300 bg-red-600 hover:bg-red-700 group relative"
+      to="/"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7"/>
-      </svg>
-      <span class="hidden sm:inline">خروج</span>
+      <span
+        class="material-icons-outlined text-gray-200 group-hover:text-white transition-colors"
+      >
+        logout
+      </span>
+      <span
+        class="hidden sm:inline ml-3 font-medium group-hover:text-white transition-colors"
+      >
+        خروج
+      </span>
     </router-link>
-
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
-import { computed } from 'vue';
+import { useRoute } from "vue-router";
+import { computed } from "vue";
 
 const route = useRoute();
 
-const linkClass = (path) => {
-  const isActive = computed(() => route.path === path);
-  return [
-    'p-2 rounded flex justify-center sm:justify-start items-center gap-2 transition-colors duration-500',
-    isActive.value ? 'bg-blue-600' : 'bg-gray-700 hover:bg-gray-600'
-  ];
-};
+const linkClass = () => [
+  "p-2 sm:p-3 rounded flex justify-center sm:justify-start items-center gap-2 transition-colors duration-300 relative group hover:bg-gray-800",
+];
+
+const isActive = (path) => computed(() => route.path === path).value;
 </script>
+
+<style>
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+</style>
