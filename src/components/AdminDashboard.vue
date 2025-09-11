@@ -12,7 +12,7 @@
       dir="rtl"
     >
       <!-- Welcome -->
-      <h1 class="text-3xl text-white font-extrabold mb-6">
+      <h1 class="welcome text-3xl text-white font-extrabold mb-6">
         سلام {{ admin.name }} 👋 به پنل خودت خوش آمدی
       </h1>
 
@@ -92,6 +92,11 @@ const stats = reactive({
 <style scoped>
 ::-webkit-scrollbar {
   width: 8px;
+}
+@media (max-width:700px) {
+  h1 {
+    font-size: 20px;
+  }
 }
 ::-webkit-scrollbar-thumb {
   background: #374151;

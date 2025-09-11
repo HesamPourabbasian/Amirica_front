@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-[15%] sm:w-64 bg-gray-900 text-white flex flex-col p-[5px] sm:p-4 shadow-lg"
+    class="w-[15%] sm:w-64 bg-gray-900 text-white flex flex-col p-[5px] sm:p-4 shadow-lg pt-[50px]"
   >
     <!-- Header only on large screens -->
     <h2 class="hidden sm:block text-2xl font-bold mb-6 text-right">
