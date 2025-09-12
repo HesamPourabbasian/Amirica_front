@@ -1,6 +1,7 @@
 <template>
   <div
-    class="w-[15%] sm:w-64 bg-gray-900 text-white flex flex-col p-[5px] sm:p-4 shadow-lg pt-[50px]"
+    class="side h-full bg-gray-900 text-white flex flex-col p-[5px] sm:p-4 shadow-lg pt-[50px]"
+    
   >
     <!-- Header only on large screens -->
     <h2 class="hidden sm:block text-2xl font-bold mb-6 text-right">
@@ -84,7 +85,7 @@
 
     <!-- Logout -->
     <router-link
-      class="p-2 rounded flex justify-center sm:justify-start items-center gap-2 mt-auto transition-all duration-300 bg-red-600 hover:bg-red-700 group relative"
+      class="p-2 rounded flex justify-center sm:justify-start items-center gap-2 transition-all duration-300 bg-red-600 hover:bg-red-700 group relative mt-2"
       to="/"
     >
       <span
@@ -116,4 +117,9 @@ const isActive = (path) => computed(() => route.path === path).value;
 
 <style>
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+.side {
+  padding-top: 50px;
+  padding-right: 20px !important;
+}
+
 </style>

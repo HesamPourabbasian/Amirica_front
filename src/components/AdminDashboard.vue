@@ -1,16 +1,18 @@
 <template>
   <!-- Top Bar -->
-  <div class="h-[80px] bg-[#1c2539]"></div>
+  <div class="h-[80px] bg-[#121929]"></div>
 
-  <div class="flex">
-    <!-- Sidebar -->
-    <AdminSidebar />
+  <!-- Grid Layout -->
+  <div
+    class="grid grid-cols-[20%_80%] md:grid-cols-[20%_80%] h-[calc(100vh-80px)]"
+  >
+    <!-- Sidebar (right side in RTL) -->
+    <div dir="rtl" class="bg-gray-900 overflow-hidden">
+      <AdminSidebar />
+    </div>
 
     <!-- Main Content -->
-    <div
-      class="flex-1 p-8 bg-[#121929] min-h-screen overflow-y-auto font-sans"
-      dir="rtl"
-    >
+    <div class="p-8 bg-[#121929] overflow-y-auto font-sans" dir="rtl">
       <!-- Welcome -->
       <h1 class="welcome text-3xl text-white font-extrabold mb-6">
         سلام {{ admin.name }} 👋 به پنل خودت خوش آمدی
@@ -37,9 +39,7 @@
           class="bg-gradient-to-tr from-indigo-500 to-indigo-700 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
         >
           <h3 class="text-gray-100 text-lg mb-2">تعداد فحاشی</h3>
-          <p class="text-3xl font-extrabold text-white">
-            {{ stats.abuses }}
-          </p>
+          <p class="text-3xl font-extrabold text-white">{{ stats.abuses }}</p>
         </div>
 
         <div
@@ -82,10 +82,10 @@ const admin = reactive({
 });
 
 const stats = reactive({
-  abuses: 12,
-  debt: 450000,
-  paid: 1500000,
-  score: 87,
+  abuses: 0,
+  debt: 0,
+  paid: 0,
+  score: 0,
 });
 </script>
 
@@ -93,16 +93,16 @@ const stats = reactive({
 ::-webkit-scrollbar {
   width: 8px;
 }
-@media (max-width:700px) {
-  h1 {
-    font-size: 20px;
-  }
-}
 ::-webkit-scrollbar-thumb {
   background: #374151;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #121929;
+}
+@media (max-width: 700px) {
+  h1 {
+    font-size: 20px;
+  }
 }
 </style>
