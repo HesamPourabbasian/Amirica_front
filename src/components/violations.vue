@@ -41,23 +41,27 @@ const submitFoul = () => {
 </script>
 
 <template>
-  <!-- نوتیفیکیشن بیرون از گرید -->
+  <!-- نوتیفیکیشن -->
   <transition name="fade">
     <div
-      v-if="notification.visible"
-      class="fixed top-6 right-6 bg-green-500 text-white px-5 py-3 rounded-md shadow-lg font-semibold z-50"
+        v-if="notification.visible"
+        class="fixed top-6 right-6 bg-green-500 text-white px-5 py-3 rounded-md shadow-lg font-semibold z-50"
     >
       {{ notification.message }}
     </div>
   </transition>
 
-  <div class="h-[70px] bg-[#121929]"></div>
+  <!-- Topbar -->
+  <div class="h-[80px] bg-[#121929]"></div>
 
-  <div class="grid grid-cols-[20%_80%] min-h-screen">
-    <!-- سایدبار -->
-    <AdminSidebar />
+  <!-- Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-[20%_80%] min-h-screen">
+    <!-- Sidebar (desktop only) -->
+    <div class="hidden md:block">
+      <AdminSidebar />
+    </div>
 
-    <!-- بخش ثبت خلافی -->
+    <!-- Main Content -->
     <div class="p-8 bg-[#1b1f2a] text-white">
       <h2 class="text-3xl font-bold mb-8">ثبت خلافی کاربر</h2>
 
@@ -65,11 +69,11 @@ const submitFoul = () => {
         <!-- انتخاب شناسه کاربر -->
         <div>
           <label class="block mb-2 font-semibold text-gray-200"
-            >شناسه کاربر</label
+          >شناسه کاربر</label
           >
           <select
-            v-model="selectedUser"
-            class="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="selectedUser"
+              class="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="" disabled>انتخاب کنید</option>
             <option v-for="id in users" :key="id" :value="id">{{ id }}</option>
@@ -79,15 +83,15 @@ const submitFoul = () => {
         <!-- تعداد فحش -->
         <div>
           <label class="block mb-2 font-semibold text-gray-200"
-            >تعداد فحش</label
+          >تعداد فحش</label
           >
           <input
-            type="number"
-            min="0"
-            v-model="foulCount"
-            @input="updatePrice"
-            placeholder="مثلاً 3"
-            class="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="number"
+              min="0"
+              v-model="foulCount"
+              @input="updatePrice"
+              placeholder="مثلاً 3"
+              class="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
@@ -95,23 +99,56 @@ const submitFoul = () => {
         <div class="text-lg font-semibold text-gray-100">
           مجموع:
           <span class="text-green-400"
-            >{{ totalPrice.toLocaleString() }} تومان</span
+          >{{ totalPrice.toLocaleString() }} تومان</span
           >
         </div>
 
         <!-- دکمه ثبت -->
         <button
-          @click="submitFoul"
-          class="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-md font-bold transition-colors"
+            @click="submitFoul"
+            class="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-md font-bold transition-colors"
         >
           ثبت
         </button>
       </div>
     </div>
   </div>
+
+  <!-- 🚀 Mobile Dock -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
+    <div class="dock bg-gray-900 text-white">
+      <div class="dock-item">
+        <router-link to="/admin">
+          <span class="material-icons-outlined"> dashboard </span>
+        </router-link>
+      </div>
+      <div class="dock-item">
+        <router-link to="/edit-profile-admin">
+          <span class="material-icons-outlined"> manage_accounts </span>
+        </router-link>
+      </div>
+      <div class="dock-item">
+        <router-link to="/cal_ed">
+          <span class="material-icons-outlined"> calendar_month </span>
+        </router-link>
+      </div>
+      <div class="dock-item">
+        <router-link to="/violations">
+          <span class="material-icons-outlined"> gavel </span>
+        </router-link>
+      </div>
+      <div class="dock-item">
+        <router-link to="/" class="text-red-400">
+          <span class="material-icons-outlined"> logout </span>
+        </router-link>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -119,5 +156,17 @@ const submitFoul = () => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+/* Dock */
+.dock {
+  height: 70px;
+  display: flex;
+}
+.dock-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

@@ -4,7 +4,7 @@
 
   <div class="grid grid-cols-1 md:grid-cols-[20%_80%] h-screen">
     <!-- Sidebar -->
-    <div class="bg-gray-900 hidden md:block">
+    <div class="bg-gray-900  md:block">
       <AdminSidebar />
     </div>
 
@@ -19,20 +19,23 @@
       </h1>
 
       <!-- Steps -->
-      <ul class="steps steps-vertical md:steps-horizontal w-2xl mb-8 md:mb-10">
-        <li :class="currentStep >= 1 ? 'step step-primary' : 'step'">
-          اطلاعات پایه
-        </li>
-        <li :class="currentStep >= 2 ? 'step step-primary' : 'step'">
-          اطلاعات فردی
-        </li>
-        <li :class="currentStep >= 3 ? 'step step-primary' : 'step'">
-          جزئیات بیشتر
-        </li>
-        <li :class="currentStep >= 4 ? 'step step-primary' : 'step'">
-          عکس پروفایل
-        </li>
-      </ul>
+      <div class="flex justify-center">
+        <ul class="steps steps-vertical md:steps-horizontal w-full md:w-2xl mb-8 md:mb-10">
+          <li :class="currentStep >= 1 ? 'step step-primary' : 'step'">
+            اطلاعات پایه
+          </li>
+          <li :class="currentStep >= 2 ? 'step step-primary' : 'step'">
+            اطلاعات فردی
+          </li>
+          <li :class="currentStep >= 3 ? 'step step-primary' : 'step'">
+            جزئیات بیشتر
+          </li>
+          <li :class="currentStep >= 4 ? 'step step-primary' : 'step'">
+            عکس پروفایل
+          </li>
+        </ul>
+      </div>
+
 
       <form @submit.prevent="saveProfile" class="relative">
         <transition name="fade" mode="out-in">
