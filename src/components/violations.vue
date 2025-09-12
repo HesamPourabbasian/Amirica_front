@@ -57,7 +57,7 @@ const isActive = (path) => route.path === path;
   </transition>
 
   <!-- Topbar -->
-  <div class="h-[80px] bg-[#121929] shadow-md"></div>
+  <div class="h-[80px] bg-[#121929] "></div>
 
   <!-- Grid -->
   <div class="grid grid-cols-1 md:grid-cols-[20%_80%] min-h-screen">
@@ -67,7 +67,7 @@ const isActive = (path) => route.path === path;
     </div>
 
     <!-- Main Content -->
-    <div class="p-8 bg-[#121929] text-white flex justify-center items-center">
+    <div class="p-8 bg-[#121929] text-white flex justify-center items-start w-full">
       <div
           class="bg-gray-800/90 p-6 rounded-2xl shadow-2xl max-w-md w-full space-y-6 border border-gray-700 backdrop-blur-md"
       >
