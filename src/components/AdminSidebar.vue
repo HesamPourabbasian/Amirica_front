@@ -87,14 +87,15 @@
   </dialog>
 </template>
 
-
 <script setup>
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 
-const linkClass = () => [
+// Highlight active link in sidebar
+const linkClass = (path) => [
   "p-2 sm:p-3 rounded flex justify-center sm:justify-start items-center gap-2 transition-colors duration-300 relative group hover:bg-gray-800",
+  route.path === path ? "text-blue-500" : "text-white",
 ];
 
 const isActive = (path) => route.path === path;

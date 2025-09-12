@@ -1,5 +1,6 @@
 <script setup>
 import { ref, reactive } from "vue";
+import { useRoute } from "vue-router";
 import AdminSidebar from "./AdminSidebar.vue";
 
 const selectedUser = ref("");
@@ -38,6 +39,10 @@ const submitFoul = () => {
   foulCount.value = 0;
   totalPrice.value = 0;
 };
+
+// Mobile dock active link
+const route = useRoute();
+const isActive = (path) => route.path === path;
 </script>
 
 <template>
@@ -119,22 +124,22 @@ const submitFoul = () => {
   <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
     <div class="dock bg-gray-900 text-white border-t border-gray-700">
       <div class="dock-item">
-        <router-link to="/admin">
+        <router-link to="/admin" :class="{ active: isActive('/admin') }">
           <span class="material-icons-outlined"> dashboard </span>
         </router-link>
       </div>
       <div class="dock-item">
-        <router-link to="/edit-profile-admin">
+        <router-link to="/edit-profile-admin" :class="{ active: isActive('/edit-profile-admin') }">
           <span class="material-icons-outlined"> manage_accounts </span>
         </router-link>
       </div>
       <div class="dock-item">
-        <router-link to="/cal_ed">
+        <router-link to="/cal_ed" :class="{ active: isActive('/cal_ed') }">
           <span class="material-icons-outlined"> calendar_month </span>
         </router-link>
       </div>
       <div class="dock-item">
-        <router-link to="/violations">
+        <router-link to="/violations" :class="{ active: isActive('/violations') }">
           <span class="material-icons-outlined"> gavel </span>
         </router-link>
       </div>
@@ -188,5 +193,10 @@ const submitFoul = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* highlight active mobile dock link */
+.dock :deep(.active) {
+  color: #3b82f6; /* blue-500 */
 }
 </style>
