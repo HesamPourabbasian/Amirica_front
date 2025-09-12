@@ -33,13 +33,13 @@
     </router-link>
 
     <!-- Logout -->
-    <router-link
+    <button
         class="p-2 rounded flex items-center gap-2 bg-red-600 hover:bg-red-700 mt-2"
-        to="/"
+        onclick="document.getElementById('logoutModal').showModal()"
     >
       <span class="material-icons-outlined"> logout </span>
       <span class="hidden sm:inline ml-3"> خروج </span>
-    </router-link>
+    </button>
   </div>
 
   <!-- Mobile Dock -->
@@ -62,12 +62,31 @@
       <router-link to="/violations" :class="{ active: isActive('/violations') }">
         <span class="material-icons-outlined"> gavel </span>
       </router-link>
-      <router-link to="/" class="text-red-500">
+      <button
+          class="text-red-500"
+          onclick="document.getElementById('logoutModal').showModal()"
+      >
         <span class="material-icons-outlined"> logout </span>
-      </router-link>
+      </button>
     </div>
   </div>
+
+  <!-- DaisyUI Modal -->
+  <dialog id="logoutModal" class="modal">
+    <div class="modal-box text-right">
+      <h3 class="font-bold text-lg">آیا مطمئنید میخواهید خارج شوید؟</h3>
+      <div class="modal-action">
+        <form method="dialog" class="flex gap-2">
+          <!-- Cancel -->
+          <button class="btn">انصراف</button>
+          <!-- Confirm -->
+          <router-link to="/" class="btn btn-error">خروج</router-link>
+        </form>
+      </div>
+    </div>
+  </dialog>
 </template>
+
 
 <script setup>
 import { useRoute } from "vue-router";

@@ -63,7 +63,13 @@ const submitFoul = () => {
 
     <!-- Main Content -->
     <div class="p-8 bg-[#121929] text-white flex justify-center items-center">
-      <div class="bg-gray-800/90 p-6 rounded-2xl shadow-2xl max-w-md w-full space-y-6 border border-gray-700 backdrop-blur-md">
+      <div
+          class="bg-gray-800/90 p-6 rounded-2xl shadow-2xl max-w-md w-full space-y-6 border border-gray-700 backdrop-blur-md"
+      >
+        <!-- Title -->
+        <h2 class="text-2xl font-bold text-center text-white mb-4">
+          ثبت تخلف :
+        </h2>
 
         <!-- User Selection -->
         <div>
@@ -93,7 +99,9 @@ const submitFoul = () => {
         <!-- Total Price -->
         <div class="text-lg font-semibold text-gray-200">
           مجموع:
-          <span class="text-green-400">{{ totalPrice.toLocaleString() }} تومان</span>
+          <span class="text-green-400"
+          >{{ totalPrice.toLocaleString() }} تومان</span
+          >
         </div>
 
         <!-- Submit Button -->
@@ -130,13 +138,32 @@ const submitFoul = () => {
           <span class="material-icons-outlined"> gavel </span>
         </router-link>
       </div>
+      <!-- 🔴 خروج with modal -->
       <div class="dock-item">
-        <router-link to="/" class="text-red-400">
+        <button
+            class="text-red-400"
+            onclick="document.getElementById('logoutModalMobile').showModal()"
+        >
           <span class="material-icons-outlined"> logout </span>
-        </router-link>
+        </button>
       </div>
     </div>
   </div>
+
+  <!-- 📌 DaisyUI Modal -->
+  <dialog id="logoutModalMobile" class="modal">
+    <div class="modal-box text-right">
+      <h3 class="font-bold text-lg">آیا مطمینید میخواهید خارج شوید؟</h3>
+      <div class="modal-action">
+        <form method="dialog" class="flex gap-2">
+          <!-- Cancel -->
+          <button class="btn">انصراف</button>
+          <!-- Confirm -->
+          <router-link to="/" class="btn btn-error">خروج</router-link>
+        </form>
+      </div>
+    </div>
+  </dialog>
 </template>
 
 <style scoped>

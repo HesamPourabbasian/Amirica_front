@@ -3,7 +3,7 @@
   <div class="h-[80px] bg-[#121929]"></div>
 
   <!-- Grid Layout -->
-  <div class="grid grid-cols-1 sm:grid-cols-[20%_80%] h-[calc(100vh-80px)]">
+  <div class="grid grid-cols-1 sm:grid-cols-[20%_80%] h-[calc(160vh-80px)] ">
     <!-- Sidebar (desktop only, right side in RTL) -->
     <div dir="rtl" class="hidden sm:block bg-gray-900 overflow-hidden">
       <AdminSidebar />
@@ -12,9 +12,9 @@
     <!-- Main Content with transition -->
     <div class="p-8 bg-[#121929] overflow-y-auto font-sans" dir="rtl">
       <Transition name="fade-slide" mode="out-in">
-        <div key="dashboard-content">
+        <div class="welcome" key="dashboard-content">
           <!-- Welcome -->
-          <h1 class="welcome text-3xl text-white font-extrabold mb-6">
+          <h1 class="text-xl sm:text-2xl md:text-3xl text-white font-extrabold mb-6">
             سلام {{ admin.name }} 👋 به پنل خودت خوش آمدی
           </h1>
 
@@ -72,7 +72,7 @@
     </div>
   </div>
 
-  <!-- Mobile Dock (DaisyUI) -->
+  <!-- 📱 Mobile Dock -->
   <div class="sm:hidden fixed bottom-0 left-0 right-0 z-50">
     <div class="dock bg-gray-900 text-white flex">
       <div class="dock-item">
@@ -98,14 +98,34 @@
           <span class="material-icons-outlined"> gavel </span>
         </router-link>
       </div>
+      <!-- 🔴 خروج with modal -->
       <div class="dock-item">
-        <router-link to="/" class="text-red-400">
+        <button
+            class="text-red-400"
+            onclick="document.getElementById('logoutModalMobile').showModal()"
+        >
           <span class="material-icons-outlined"> logout </span>
-        </router-link>
+        </button>
       </div>
     </div>
   </div>
+
+  <!-- 📌 DaisyUI Modal -->
+  <dialog id="logoutModalMobile" class="modal">
+    <div class="modal-box text-right">
+      <h3 class="font-bold text-lg">آیا مطمینید میخواهید خارج شوید؟</h3>
+      <div class="modal-action">
+        <form method="dialog" class="flex gap-2">
+          <!-- Cancel -->
+          <button class="btn">انصراف</button>
+          <!-- Confirm -->
+          <router-link to="/" class="btn btn-error">خروج</router-link>
+        </form>
+      </div>
+    </div>
+  </dialog>
 </template>
+
 
 <script setup>
 import AdminSidebar from "./AdminSidebar.vue";
@@ -172,5 +192,11 @@ const isActive = (path) => route.path === path;
 .fade-slide-leave-to {
   opacity: 0;
   transform: translateX(-20px);
+}
+
+@media (max-width: 700px) {
+  .welcome h2 {
+
+  }
 }
 </style>

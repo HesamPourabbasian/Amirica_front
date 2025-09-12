@@ -1,23 +1,19 @@
 <template>
   <!-- Topbar -->
-  <div class="h-[80px] bg-[#121929]  flex items-center px-6"></div>
+  <div class="h-[80px] bg-[#121929] flex items-center px-6"></div>
 
   <!-- Grid Layout -->
-  <div
-      class="grid grid-cols-5 min-h-screen bg-[#121929] text-white"
-  >
+  <div class="grid grid-cols-5 min-h-screen bg-[#121929] text-white">
     <!-- Sidebar (desktop only) -->
-    <div
-        class="hidden md:block col-span-1 bg-gray-900/90 backdrop-blur-md border-r  shadow-lg h-screen sticky top-0"
-    >
+    <div class="hidden md:block col-span-1 bg-gray-900/90">
       <AdminSidebar />
     </div>
 
     <!-- Main Content -->
-    <div class="col-span-5 md:col-span-4 p-6 h-screen">
+    <div class="col-span-5 md:col-span-4 p-6 h-[120vh]">
       <!-- Title -->
       <h2
-          class="text-4xl font-extrabold mb-12 text-center bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent tracking-tight"
+          class="text-4xl font-extrabold mb-12 text-center text-shadow-white"
       >
         ویرایش تقویم
       </h2>
@@ -114,13 +110,32 @@
           <span class="material-icons-outlined"> gavel </span>
         </router-link>
       </div>
+      <!-- 🔴 خروج with modal trigger -->
       <div class="dock-item">
-        <router-link to="/" class="text-red-400">
+        <button
+            class="text-red-400"
+            onclick="document.getElementById('logoutModalMobile').showModal()"
+        >
           <span class="material-icons-outlined"> logout </span>
-        </router-link>
+        </button>
       </div>
     </div>
   </div>
+
+  <!-- 📌 DaisyUI Modal for mobile logout -->
+  <dialog id="logoutModalMobile" class="modal">
+    <div class="modal-box text-right">
+      <h3 class="font-bold text-lg">آیا مطمینید میخواهید خارج شوید؟</h3>
+      <div class="modal-action">
+        <form method="dialog" class="flex gap-2">
+          <!-- Cancel -->
+          <button class="btn">انصراف</button>
+          <!-- Confirm -->
+          <router-link to="/" class="btn btn-error">خروج</router-link>
+        </form>
+      </div>
+    </div>
+  </dialog>
 </template>
 
 <script>

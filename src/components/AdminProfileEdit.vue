@@ -10,7 +10,7 @@
 
     <!-- Main container -->
     <div
-      class="p-4 md:p-6 overflow-y-auto bg-[#121929] pt-[50px] shadow-xl font-sans text-right"
+      class="p-4 md:p-6 overflow-y-auto bg-[#121929]  shadow-xl font-sans text-right h-[150vh]"
     >
       <h1
         class="text-2xl md:text-4xl font-extrabold mb-8 md:mb-10 text-white text-center drop-shadow-lg"
@@ -257,8 +257,58 @@
           <button v-else type="submit" class="btn-green">ذخیره تغییرات</button>
         </div>
       </form>
+
+
     </div>
   </div>
+  <!-- Mobile Dock -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
+    <div class="dock bg-gray-900 text-white flex">
+      <div class="dock-item flex-1 flex justify-center items-center">
+        <router-link to="/admin">
+          <span class="material-icons-outlined">dashboard</span>
+        </router-link>
+      </div>
+      <div class="dock-item flex-1 flex justify-center items-center">
+        <router-link to="/edit-profile-admin">
+          <span class="material-icons-outlined">manage_accounts</span>
+        </router-link>
+      </div>
+      <div class="dock-item flex-1 flex justify-center items-center">
+        <router-link to="/cal_ed">
+          <span class="material-icons-outlined">calendar_month</span>
+        </router-link>
+      </div>
+      <div class="dock-item flex-1 flex justify-center items-center">
+        <router-link to="/violations">
+          <span class="material-icons-outlined">gavel</span>
+        </router-link>
+      </div>
+      <div class="dock-item flex-1 flex justify-center items-center">
+        <button
+            class="text-red-400"
+            onclick="document.getElementById('logoutModalMobile').showModal()"
+        >
+          <span class="material-icons-outlined">logout</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- 📌 DaisyUI Modal -->
+  <dialog id="logoutModalMobile" class="modal">
+    <div class="modal-box text-right">
+      <h3 class="font-bold text-lg">آیا مطمینید میخواهید خارج شوید؟</h3>
+      <div class="modal-action">
+        <form method="dialog" class="flex gap-2">
+          <!-- Cancel -->
+          <button class="btn">انصراف</button>
+          <!-- Confirm -->
+          <router-link to="/" class="btn btn-error">خروج</router-link>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
 </template>
 
 <script>
@@ -420,5 +470,15 @@ export default {
 .btn-green {
   @apply px-6 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white transition;
 }
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+
+/* Dock styling */
+.dock {
+  height: 70px;
+}
+.dock-item span {
+  font-size: 28px;
+}
+
 </style>
 ```
