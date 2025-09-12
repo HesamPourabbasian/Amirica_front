@@ -41,7 +41,7 @@ const submitFoul = () => {
 </script>
 
 <template>
-  <!-- نوتیفیکیشن -->
+  <!-- Notification -->
   <transition name="fade">
     <div
         v-if="notification.visible"
@@ -52,7 +52,7 @@ const submitFoul = () => {
   </transition>
 
   <!-- Topbar -->
-  <div class="h-[80px] bg-[#121929]"></div>
+  <div class="h-[80px] bg-[#121929] shadow-md"></div>
 
   <!-- Grid -->
   <div class="grid grid-cols-1 md:grid-cols-[20%_80%] min-h-screen">
@@ -62,51 +62,44 @@ const submitFoul = () => {
     </div>
 
     <!-- Main Content -->
-    <div class="p-8 bg-[#1b1f2a] text-white">
-      <h2 class="text-3xl font-bold mb-8">ثبت خلافی کاربر</h2>
+    <div class="p-8 bg-[#121929] text-white flex justify-center items-center">
+      <div class="bg-gray-800/90 p-6 rounded-2xl shadow-2xl max-w-md w-full space-y-6 border border-gray-700 backdrop-blur-md">
 
-      <div class="bg-[#2c2f3a] p-6 rounded-lg shadow-lg max-w-md space-y-6">
-        <!-- انتخاب شناسه کاربر -->
+        <!-- User Selection -->
         <div>
-          <label class="block mb-2 font-semibold text-gray-200"
-          >شناسه کاربر</label
-          >
+          <label class="block mb-2 font-semibold text-gray-200">شناسه کاربر</label>
           <select
               v-model="selectedUser"
-              class="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-2 rounded-xl bg-gray-900 border border-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
           >
             <option value="" disabled>انتخاب کنید</option>
             <option v-for="id in users" :key="id" :value="id">{{ id }}</option>
           </select>
         </div>
 
-        <!-- تعداد فحش -->
+        <!-- Foul Count -->
         <div>
-          <label class="block mb-2 font-semibold text-gray-200"
-          >تعداد فحش</label
-          >
+          <label class="block mb-2 font-semibold text-gray-200">تعداد فحش</label>
           <input
               type="number"
               min="0"
               v-model="foulCount"
               @input="updatePrice"
               placeholder="مثلاً 3"
-              class="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-2 rounded-xl bg-gray-900 border border-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
           />
         </div>
 
-        <!-- مبلغ کل -->
-        <div class="text-lg font-semibold text-gray-100">
+        <!-- Total Price -->
+        <div class="text-lg font-semibold text-gray-200">
           مجموع:
-          <span class="text-green-400"
-          >{{ totalPrice.toLocaleString() }} تومان</span
-          >
+          <span class="text-green-400">{{ totalPrice.toLocaleString() }} تومان</span>
         </div>
 
-        <!-- دکمه ثبت -->
+        <!-- Submit Button -->
         <button
             @click="submitFoul"
-            class="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-md font-bold transition-colors"
+            class="w-full px-4 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:shadow-lg hover:scale-[1.02] active:scale-95 transition"
         >
           ثبت
         </button>
@@ -116,7 +109,7 @@ const submitFoul = () => {
 
   <!-- 🚀 Mobile Dock -->
   <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
-    <div class="dock bg-gray-900 text-white">
+    <div class="dock bg-gray-900 text-white border-t border-gray-700">
       <div class="dock-item">
         <router-link to="/admin">
           <span class="material-icons-outlined"> dashboard </span>

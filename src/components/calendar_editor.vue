@@ -1,14 +1,14 @@
 <template>
   <!-- Topbar -->
-  <div class="h-[80px] bg-[#121929] shadow-md flex items-center px-6"></div>
+  <div class="h-[80px] bg-[#121929]  flex items-center px-6"></div>
 
   <!-- Grid Layout -->
   <div
-      class="grid grid-cols-5 min-h-screen bg-gradient-to-br from-[#121929] via-[#1b2436] to-[#121929] text-white"
+      class="grid grid-cols-5 min-h-screen bg-[#121929] text-white"
   >
     <!-- Sidebar (desktop only) -->
     <div
-        class="hidden md:block col-span-1 bg-gray-900/90 backdrop-blur-md border-r border-gray-800 shadow-lg h-screen sticky top-0"
+        class="hidden md:block col-span-1 bg-gray-900/90 backdrop-blur-md border-r  shadow-lg h-screen sticky top-0"
     >
       <AdminSidebar />
     </div>
@@ -24,24 +24,24 @@
 
       <!-- Event Form -->
       <div
-          class="bg-white/90 text-gray-800 shadow-2xl w-full sm:w-[80%] md:w-[55%] rounded-2xl p-8 mb-12 mx-auto backdrop-blur-md border border-gray-200"
+          class="bg-gray-800/90 text-gray-200 shadow-2xl w-full sm:w-[80%] md:w-[55%] rounded-2xl p-8 mb-12 mx-auto backdrop-blur-md border border-gray-700"
       >
         <label class="block mb-6">
-          <span class="text-gray-700 font-semibold">📅 تاریخ ایونت</span>
+          <span class="text-gray-300 font-semibold">📅 تاریخ ایونت</span>
           <input
               v-model="newEvent.date"
               type="date"
-              class="mt-2 w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 px-4 py-3 transition"
+              class="mt-2 w-full rounded-xl bg-gray-900 border-gray-700 text-gray-200 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 px-4 py-3 transition"
           />
         </label>
 
         <label class="block mb-6">
-          <span class="text-gray-700 font-semibold">📝 نام ایونت</span>
+          <span class="text-gray-300 font-semibold">📝 نام ایونت</span>
           <input
               v-model="newEvent.title"
               type="text"
               placeholder="مثلاً جلسه هفتگی"
-              class="mt-2 w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 px-4 py-3 transition"
+              class="mt-2 w-full rounded-xl bg-gray-900 border-gray-700 text-gray-200 shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-400 px-4 py-3 transition"
           />
         </label>
 
@@ -55,10 +55,10 @@
 
       <!-- Events List -->
       <div
-          class="bg-white/90 text-gray-800 p-8 rounded-2xl shadow-2xl w-full sm:w-[80%] md:w-[55%] mx-auto backdrop-blur-md border border-gray-200 mb-12"
+          class="bg-gray-800/90 text-gray-200 p-8 rounded-2xl shadow-2xl w-full sm:w-[80%] md:w-[55%] mx-auto backdrop-blur-md border border-gray-700 mb-12"
       >
         <h3
-            class="text-2xl font-bold mb-6 text-indigo-700 flex items-center gap-2"
+            class="text-2xl font-bold mb-6 text-indigo-400 flex items-center gap-2"
         >
           📌 ایونت‌های ثبت شده
         </h3>
@@ -67,13 +67,13 @@
           <li
               v-for="(event, index) in events"
               :key="index"
-              class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-50/70 border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition"
+              class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-900/70 border border-gray-700 rounded-xl p-5 shadow-sm hover:shadow-md transition"
           >
             <div class="mb-2 sm:mb-0">
-              <p class="font-semibold text-lg text-gray-900">
+              <p class="font-semibold text-lg text-gray-200">
                 {{ event.title }}
               </p>
-              <p class="text-sm text-gray-500">📅 تاریخ: {{ event.date }}</p>
+              <p class="text-sm text-gray-400">📅 تاریخ: {{ event.date }}</p>
             </div>
             <button
                 @click="removeEvent(index)"
@@ -84,7 +84,7 @@
           </li>
         </ul>
 
-        <p v-else class="text-gray-500 text-center italic">
+        <p v-else class="text-gray-400 text-center italic">
           🚫 هیچ ایونتی ثبت نشده است.
         </p>
       </div>
@@ -93,7 +93,7 @@
 
   <!-- 🚀 Mobile Dock -->
   <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
-    <div class="dock bg-gray-900 text-white">
+    <div class="dock bg-gray-900 text-white border-t border-gray-700">
       <div class="dock-item">
         <router-link to="/admin">
           <span class="material-icons-outlined"> dashboard </span>

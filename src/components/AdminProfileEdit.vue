@@ -10,7 +10,7 @@
 
     <!-- Main container -->
     <div
-      class="p-4 md:p-6 overflow-y-auto bg-gradient-to-br from-[#121929] via-[#1b2436] to-[#121929] pt-[50px] shadow-xl font-sans text-right"
+      class="p-4 md:p-6 overflow-y-auto bg-[#121929] pt-[50px] shadow-xl font-sans text-right"
     >
       <h1
         class="text-2xl md:text-4xl font-extrabold mb-8 md:mb-10 text-white text-center drop-shadow-lg"
