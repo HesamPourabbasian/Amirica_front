@@ -5,23 +5,18 @@
   <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
     <div class="dock bg-gray-900 text-white flex">
       <div class="dock-item flex-1 flex justify-center items-center">
-        <router-link to="/admin" class="dock-link">
+        <router-link to="/user" class="dock-link">
           <span class="material-icons-outlined">dashboard</span>
         </router-link>
       </div>
       <div class="dock-item flex-1 flex justify-center items-center">
-        <router-link to="/edit-profile-admin" class="dock-link">
+        <router-link to="/userProfileEdit" class="dock-link">
           <span class="material-icons-outlined">manage_accounts</span>
         </router-link>
       </div>
       <div class="dock-item flex-1 flex justify-center items-center">
-        <router-link to="/cal_ed" class="dock-link">
+        <router-link to="/userCalEditor" class="dock-link">
           <span class="material-icons-outlined">calendar_month</span>
-        </router-link>
-      </div>
-      <div class="dock-item flex-1 flex justify-center items-center">
-        <router-link to="/violations" class="dock-link">
-          <span class="material-icons-outlined">gavel</span>
         </router-link>
       </div>
       <div class="dock-item flex-1 flex justify-center items-center">

@@ -5,10 +5,12 @@ import Calendar from "../components/calendar.vue";
 import About from "../components/About.vue";
 import MemberProfile from "../components/MemberProfile.vue";
 import AdminDashboard from "../components/AdminDashboard.vue";
-import UserDashboard from "../components/UserDashboard.vue";
+import UserDashboard from "../components/userPanel/UserDashboard.vue";
 import AdminProfileEdit from "@/components/AdminProfileEdit.vue";
 import calendar_ed from "../components/calendar_editor.vue"
 import violations from "../components/violations.vue"
+import userProfileEdit from "@/components/userPanel/userProfileEdit.vue";
+import userCalEditor from "@/components/userPanel/userCalEditor.vue";
 const routes = [
     { path: "/", component: Home },
     { path: "/login", component: Login },
@@ -28,7 +30,10 @@ const routes = [
     { path: "/user", component: UserDashboard },
     {path: '/edit-profile-admin', component: AdminProfileEdit},
     {path: '/cal_ed' ,component: calendar_ed },
-    {path: '/violations', component: violations}
+    {path: '/violations', component: violations},
+    {path: '/userProfileEdit', component: userProfileEdit },
+    {path: '/userCalEditor', component: userCalEditor },
+
 
 ];
 

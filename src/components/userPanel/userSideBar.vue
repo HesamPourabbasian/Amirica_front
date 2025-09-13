@@ -15,30 +15,25 @@ const isActive = (path) => route.path === path;
 <template>
   <!-- Desktop Sidebar -->
   <div
-      class="hidden sm:flex side h-full bg-gray-900 text-white flex-col p-[5px] sm:p-4 shadow-lg pt-[50px]"
+      class="hidden sm:flex side h-full bg-gradient-to-b from-pink-900 via-purple-900 to-purple-950 text-white flex-col p-[5px] sm:p-4 shadow-lg pt-[50px]"
   >
     <h2 class="hidden sm:block text-2xl font-bold mb-6 text-right">
-      منوی ادمین
+      منوی کاربر
     </h2>
 
-    <router-link :class="linkClass('/admin')" to="/admin">
+    <router-link :class="linkClass('/user')" to="/user">
       <span class="material-icons-outlined">dashboard</span>
       <span class="hidden sm:inline ml-3"> داشبورد </span>
     </router-link>
 
-    <router-link :class="linkClass('/edit-profile-admin')" to="/edit-profile-admin">
+    <router-link :class="linkClass('/userProfileEdit')" to="/userProfileEdit">
       <span class="material-icons-outlined">manage_accounts</span>
-      <span class="hidden sm:inline ml-3"> ویرایش پروفایل ادمین </span>
+      <span class="hidden sm:inline ml-3"> ویرایش پروفایل کاربر </span>
     </router-link>
 
-    <router-link :class="linkClass('/cal_ed')" to="/cal_ed">
+    <router-link :class="linkClass('/userCalEditor')" to="/userCalEditor">
       <span class="material-icons-outlined">calendar_month</span>
       <span class="hidden sm:inline ml-3"> ویرایش تقویم </span>
-    </router-link>
-
-    <router-link :class="linkClass('/violations')" to="/violations">
-      <span class="material-icons-outlined">gavel</span>
-      <span class="hidden sm:inline ml-3"> ثبت خلافی کاربران </span>
     </router-link>
 
     <!-- Logout -->
@@ -53,7 +48,7 @@ const isActive = (path) => route.path === path;
 
   <!-- Mobile Dock -->
   <div
-      class="sm:hidden fixed bottom-0 left-0 right-0 bg-gray-900 text-white shadow-lg"
+      class="sm:hidden fixed bottom-0 left-0 right-0 bg-gradient-to-r from-pink-900 via-purple-900 to-purple-950 text-white shadow-lg"
   >
     <div class="btm-nav h-16 text-xl">
       <router-link to="/admin" :class="{ active: isActive('/admin') }">

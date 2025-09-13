@@ -34,7 +34,11 @@ declare module 'vue' {
     Section3: typeof import('./src/components/Section3.vue')['default']
     Slider: typeof import('./src/components/slider.vue')['default']
     UseMember: typeof import('./src/components/useMember.vue')['default']
-    UserDashboard: typeof import('./src/components/UserDashboard.vue')['default']
+    UserCalEditor: typeof import('./src/components/userPanel/userCalEditor.vue')['default']
+    UserDashboard: typeof import('./src/components/userPanel/UserDashboard.vue')['default']
+    UserMobileDock: typeof import('./src/components/userPanel/userMobileDock.vue')['default']
+    UserProfileEdit: typeof import('./src/components/userPanel/userProfileEdit.vue')['default']
+    UserSideBar: typeof import('./src/components/userPanel/userSideBar.vue')['default']
     Violations: typeof import('./src/components/violations.vue')['default']
   }
 }

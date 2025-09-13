@@ -1,16 +1,16 @@
 <template>
   <!-- Top Bar -->
-  <div class="h-[80px] bg-[#121929]"></div>
+  <div class="h-[80px] bg-gradient-to-b from-pink-900 via-pink-900 to-pink-900"></div>
 
   <!-- Grid Layout -->
   <div class="grid grid-cols-1 sm:grid-cols-[20%_80%] h-[calc(160vh-80px)] ">
     <!-- Sidebar (desktop only, right side in RTL) -->
     <div dir="rtl" class="hidden sm:block bg-gray-900 overflow-hidden">
-      <AdminSidebar />
+      <user-side-bar/>
     </div>
 
     <!-- Main Content with transition -->
-    <div class="p-8 bg-[#121929] overflow-y-auto font-sans" dir="rtl">
+    <div class="p-8 bg-gradient-to-b from-pink-900 via-purple-900 to-purple-950 overflow-y-auto font-sans" dir="rtl">
       <Transition name="fade-slide" mode="out-in">
         <div class="welcome" key="dashboard-content">
           <!-- Welcome -->
@@ -20,9 +20,10 @@
 
           <!-- Profile Section -->
           <div
-              class="flex items-center gap-6 bg-[#1c2539] p-6 rounded-2xl shadow-lg mb-10"
+              class="flex items-center gap-6 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-950 p-6 rounded-2xl shadow-lg mb-10"
           >
-            <img
+
+          <img
                 :src="admin.avatar"
                 alt="Admin Avatar"
                 class="w-20 h-20 rounded-full border-4 border-indigo-400 shadow-md"
@@ -36,14 +37,14 @@
           <!-- Stats Cards -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div
-                class="bg-gradient-to-tr from-indigo-500 to-indigo-700 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
+                class="bg-gradient-to-tr from-indigo-900 via-indigo-800 to-indigo-950 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
             >
               <h3 class="text-gray-100 text-lg mb-2">تعداد فحاشی</h3>
               <p class="text-3xl font-extrabold text-white">{{ stats.abuses }}</p>
             </div>
 
             <div
-                class="bg-gradient-to-tr from-rose-500 to-rose-700 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
+                class="bg-gradient-to-tr from-rose-900 via-rose-800 to-rose-950 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
             >
               <h3 class="text-gray-100 text-lg mb-2">بدهکاری</h3>
               <p class="text-3xl font-extrabold text-white">
@@ -52,7 +53,7 @@
             </div>
 
             <div
-                class="bg-gradient-to-tr from-emerald-500 to-emerald-700 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
+                class="bg-gradient-to-tr from-emerald-900 via-emerald-800 to-emerald-950 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
             >
               <h3 class="text-gray-100 text-lg mb-2">جمع مبلغ پرداخت شده</h3>
               <p class="text-3xl font-extrabold text-white">
@@ -61,7 +62,7 @@
             </div>
 
             <div
-                class="bg-gradient-to-tr from-amber-500 to-amber-700 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
+                class="bg-gradient-to-tr from-amber-900 via-amber-800 to-amber-950 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform"
             >
               <h3 class="text-gray-100 text-lg mb-2">امتیاز</h3>
               <p class="text-3xl font-extrabold text-white">{{ stats.score }}</p>
@@ -73,7 +74,7 @@
   </div>
 
   <!-- 📱 Mobile Dock -->
-  <mobile_dock/>
+  <user-mobile-dock/>
 
   <!-- 📌 DaisyUI Modal -->
   <dialog id="logoutModalMobile" class="modal">
@@ -93,16 +94,16 @@
 
 
 <script setup>
-import AdminSidebar from "./AdminSidebar.vue";
+import AdminSidebar from "../AdminSidebar.vue";
 import { reactive } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 
 const admin = reactive({
-  name: "حسام پورعباسیان",
+  name: 'پویا زادمهر',
   title: "ادمین",
-  avatar: "/hesam.jpg",
+  avatar: "/pouya.jpg",
 });
 
 const stats = reactive({
