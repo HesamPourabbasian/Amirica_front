@@ -3,7 +3,7 @@
 
 <template>
   <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
-    <div class="dock bg-gray-900 text-white flex">
+    <div class="dock bg-gradient-to-b from-pink-900 via-purple-900 to-purple-950 text-white flex">
       <div class="dock-item flex-1 flex justify-center items-center">
         <router-link to="/user" class="dock-link">
           <span class="material-icons-outlined">dashboard</span>
