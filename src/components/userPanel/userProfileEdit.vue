@@ -37,9 +37,9 @@
       </div>
 
 
-      <form @submit.prevent="saveProfile" class="relative ">
+      <form @submit.prevent="saveProfile" class="relative">
         <transition name="fade" mode="out-in">
-          <div :key="currentStep" class="space-y-6 ">
+          <div :key="currentStep" class="space-y-6">
             <!-- Step 1 -->
             <div v-if="currentStep === 1" class="space-y-6">
               <div>
@@ -426,7 +426,7 @@ export default {
 }
 
 .input-field {
-  @apply w-[50%] border border-gray-600 bg-gray-700/60 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition;
+  @apply w-full border border-gray-600 bg-gray-700/60 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 transition;
 }
 .error-text {
   @apply text-red-400 text-sm mt-1;
