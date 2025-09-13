@@ -20,7 +20,7 @@ onMounted(async () => {
 
 <template>
   <div dir="rtl" class=" bg-main-color py-8">
-    <h1 class="mr-[6%] mb-8 text-[40px] text-gray-200 font-bold text-right">
+    <h1 class="mr-[8%] mb-8 text-[30px] text-gray-200 font-bold text-right">
       اسامی اعضا
     </h1>
 
@@ -69,11 +69,7 @@ onMounted(async () => {
 h1 {
   text-align: right;
   font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive font size (24px–40px) */
-  margin-right: clamp(
-    2%,
-    5vw,
-    4%
-  ); /* Responsive margin-right instead of mr-[6%] */
+
   margin-bottom: clamp(
     1rem,
     3vw,

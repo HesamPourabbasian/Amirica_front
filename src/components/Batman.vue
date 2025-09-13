@@ -15,6 +15,8 @@ const toggleAudio = () => {
 </script>
 
 <template>
+  <div class="h-[100px] bg-[#121929]"></div>
+
   <div class="batman">
     <div class="welcome">
       <h1>به امیر-یکا خوش آمدید</h1>
@@ -78,7 +80,6 @@ const toggleAudio = () => {
   border-radius: 20px;
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,8 +179,6 @@ const toggleAudio = () => {
     margin-top: 20px;
     height: 300px;
     border-radius: 15px;
-    border-width: 5px; 
-    margin-top: 80px;
   }
 }
 
