@@ -121,39 +121,7 @@ const isActive = (path) => route.path === path;
   </div>
 
   <!-- 🚀 Mobile Dock -->
-  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
-    <div class="dock bg-gray-900 text-white border-t border-gray-700">
-      <div class="dock-item">
-        <router-link to="/admin" :class="{ active: isActive('/admin') }">
-          <span class="material-icons-outlined"> dashboard </span>
-        </router-link>
-      </div>
-      <div class="dock-item">
-        <router-link to="/edit-profile-admin" :class="{ active: isActive('/edit-profile-admin') }">
-          <span class="material-icons-outlined"> manage_accounts </span>
-        </router-link>
-      </div>
-      <div class="dock-item">
-        <router-link to="/cal_ed" :class="{ active: isActive('/cal_ed') }">
-          <span class="material-icons-outlined"> calendar_month </span>
-        </router-link>
-      </div>
-      <div class="dock-item">
-        <router-link to="/violations" :class="{ active: isActive('/violations') }">
-          <span class="material-icons-outlined"> gavel </span>
-        </router-link>
-      </div>
-      <!-- 🔴 خروج with modal -->
-      <div class="dock-item">
-        <button
-            class="text-red-400"
-            onclick="document.getElementById('logoutModalMobile').showModal()"
-        >
-          <span class="material-icons-outlined"> logout </span>
-        </button>
-      </div>
-    </div>
-  </div>
+<mobile_dock/>
 
   <!-- 📌 DaisyUI Modal -->
   <dialog id="logoutModalMobile" class="modal">

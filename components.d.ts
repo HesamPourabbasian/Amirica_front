@@ -23,6 +23,7 @@ declare module 'vue' {
     Marquee: typeof import('./src/components/Marquee.vue')['default']
     MemberProfile: typeof import('./src/components/MemberProfile.vue')['default']
     Members: typeof import('./src/components/Members.vue')['default']
+    Mobile_dock: typeof import('./src/components/mobile_dock.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
     NotFound: typeof import('./src/components/views/NotFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

@@ -262,38 +262,7 @@
     </div>
   </div>
   <!-- Mobile Dock -->
-  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50">
-    <div class="dock bg-gray-900 text-white flex">
-      <div class="dock-item flex-1 flex justify-center items-center">
-        <router-link to="/admin">
-          <span class="material-icons-outlined">dashboard</span>
-        </router-link>
-      </div>
-      <div class="dock-item flex-1 flex justify-center items-center">
-        <router-link to="/edit-profile-admin">
-          <span class="material-icons-outlined">manage_accounts</span>
-        </router-link>
-      </div>
-      <div class="dock-item flex-1 flex justify-center items-center">
-        <router-link to="/cal_ed">
-          <span class="material-icons-outlined">calendar_month</span>
-        </router-link>
-      </div>
-      <div class="dock-item flex-1 flex justify-center items-center">
-        <router-link to="/violations">
-          <span class="material-icons-outlined">gavel</span>
-        </router-link>
-      </div>
-      <div class="dock-item flex-1 flex justify-center items-center">
-        <button
-            class="text-red-400"
-            onclick="document.getElementById('logoutModalMobile').showModal()"
-        >
-          <span class="material-icons-outlined">logout</span>
-        </button>
-      </div>
-    </div>
-  </div>
+ <mobile_dock/>
   <!-- 📌 DaisyUI Modal -->
   <dialog id="logoutModalMobile" class="modal">
     <div class="modal-box text-right">
@@ -313,9 +282,10 @@
 
 <script>
 import AdminSidebar from "./AdminSidebar.vue";
+import Mobile_dock from "@/components/mobile_dock.vue";
 
 export default {
-  components: { AdminSidebar },
+  components: {Mobile_dock, AdminSidebar },
   data() {
     return {
       currentStep: 1,
