@@ -9,6 +9,7 @@ import Section2 from "./Section2.vue";
 import Section3 from "./Section3.vue";
 import Footer from "./Footer.vue";
 import Members from "./Members.vue";
+import Notes from "./Notes.vue";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,6 +41,7 @@ onMounted(() => {
   >
     <Batman class="mb-16" />
     <Section1 class="mb-16" />
+    <Notes class="mb-16" />
     <Section2 class="mb-16" />
     <Section3 class="mb-16" />
     <Members class="mb-16" />
